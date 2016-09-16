@@ -1,0 +1,11 @@
+{
+  "name": "Acdn-hris",
+  "short_name": "Acdn-hris",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "favicon.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }]
+}

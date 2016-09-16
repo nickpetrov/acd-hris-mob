@@ -1,0 +1,11 @@
+{
+  "development":{
+    "apiRoot": "http://acdn-hr-staging.azurewebsites.net"
+  },
+  "production":{
+    "apiRoot": "https://api.carehr.co"
+  },
+  "local":{
+    "apiRoot": "http://localhost:5000"
+  }
+}

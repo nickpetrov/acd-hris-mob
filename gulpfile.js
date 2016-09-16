@@ -1,0 +1,205 @@
+var gulp = require('gulp');
+var del = require('del');
+var concat = require('gulp-concat');
+var sass = require('gulp-sass');
+var cleanCss = require('gulp-clean-css');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var ngConfig = require('gulp-ng-config');
+var addStream = require("add-stream");
+var ngAnnotate = require("gulp-ng-annotate");
+var uglify = require("gulp-uglify");
+
+var path = {
+  src: "src/",
+  www: "www/"
+};
+
+var img = [
+    path.src + "img/**/*.*",
+    "!" + path.src + "img/favicon.png"
+];
+
+var favicon = [
+    path.src + "img/favicon.png"
+];
+
+var manifest = [
+    path.src + "manifest.json"
+];
+
+var scss = [
+    "scss/ionic.app.scss"
+];
+
+var fonts = [
+    path.src + "lib/ionic/fonts/**/*.*"
+];
+
+var js = [
+    path.src + "lib/ionic/js/ionic.bundle.js",
+    path.src + "modules/acdnHris.auth/acdnHris.auth.module.js",
+    path.src + "modules/acdnHris/acdnHris.module.js",
+    path.src + "modules/acdnHris/**/*.js",
+    path.src + "modules/**/*.js"
+];
+
+var templates = [
+    path.src + "modules/**/*.html"
+];
+
+//Error handling function
+function handleErrors() {
+    for(var i = 0; i < arguments.length; i++) {
+        console.log("Plugin: " + arguments[i].plugin + "\n" + "Message: " + arguments[i].message)
+    }
+}
+
+
+//Task for deleting "www" folder
+gulp.task("clean", function() {
+  return del(path.www, {
+        force: true
+    });
+});
+
+
+//Task for moving images to www
+var imagesTask = function() {
+    return gulp.src(img)
+        .pipe(gulp.dest(path.www + "img/"))
+};
+
+gulp.task("images", imagesTask);
+
+
+//Task for moving favicon to www
+var faviconTask = function() {
+    return gulp.src(favicon)
+        .pipe(gulp.dest(path.www))
+};
+
+gulp.task("favicon", faviconTask);
+
+
+//Task for moving manifest to www
+var manifestTask = function() {
+    return gulp.src(manifest)
+        .pipe(gulp.dest(path.www))
+};
+
+gulp.task("manifest", manifestTask);
+
+
+//Task for moving "index.html" to www
+var indexTask = function() {
+    return gulp.src(path.src + "index.html")
+        .pipe(gulp.dest(path.www));
+};
+
+gulp.task("index", indexTask);
+
+
+//Task for converting sass to css and gather it together
+var cssDevTask = function() {
+    return gulp.src(scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({ browsers: ['last 2 versions'] })).on("error", handleErrors)
+        .pipe(concat("styles.css")).on("error", handleErrors)
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(path.www + "css/"));
+};
+
+gulp.task("css-dev", cssDevTask);
+
+var cssBuildTask = function() {
+    return gulp.src(scss)
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(autoprefixer({ browsers: ['last 2 versions'] })).on("error", handleErrors)
+        .pipe(concat("styles.css")).on("error", handleErrors)
+        .pipe(gulp.dest(path.www + "css/"));
+};
+gulp.task("css-build", cssBuildTask);
+
+
+//Task for moving fonts to www
+var fontsTask = function() {
+    return gulp.src(fonts)
+        .pipe(gulp.dest(path.www + "fonts/"));
+};
+gulp.task("fonts", fontsTask);
+
+
+//Function for creating from json constants for module
+/**
+ * environment-dependent constants
+ * @param {"development"|"production"|"local"} environment
+ */
+var createConfig = function(environment){
+    return gulp.src(path.src + "modules/acdnHris/apiEndpoints.json")
+        .pipe(ngConfig("acdnHris", {
+            createModule: false,
+            environment: environment,
+            wrap: true
+        }))
+};
+
+
+//Tasks for creating common js file
+var jsDevTask = function() {
+    return gulp.src(js)
+        .pipe(sourcemaps.init()).on("error", handleErrors)
+        .pipe(addStream.obj(createConfig("development"))).on("error", handleErrors)
+        .pipe(ngAnnotate()).on("error", handleErrors)
+        .pipe(concat("scripts.js")).on("error", handleErrors)
+        .pipe(sourcemaps.write(".")).on("error", handleErrors)
+        .pipe(gulp.dest(path.www + "/js"))
+};
+
+gulp.task("js-dev", jsDevTask);
+
+var jsLocalTask = function() {
+    return gulp.src(js)
+        .pipe(sourcemaps.init()).on("error", handleErrors)
+        .pipe(addStream.obj(createConfig("local"))).on("error", handleErrors)
+        .pipe(ngAnnotate()).on("error", handleErrors)
+        .pipe(concat("scripts.js")).on("error", handleErrors)
+        .pipe(sourcemaps.write(".")).on("error", handleErrors)
+        .pipe(gulp.dest(path.www + "/js"));
+};
+
+gulp.task("js-local", jsLocalTask);
+
+var jsBuildTask = function() {
+    return gulp.src(js)
+        .pipe(addStream.obj(createConfig("production"))).on("error", handleErrors)
+        .pipe(ngAnnotate()).on("error", handleErrors)
+        .pipe(concat("scripts.js")).on("error", handleErrors)
+        .pipe(uglify()).on("error", handleErrors)
+        .pipe(gulp.dest(path.www + "/js"));
+};
+
+gulp.task("js-build", jsBuildTask);
+
+
+//Task for copying all templates
+var templatesTask =  function() {
+    return gulp.src(templates)
+        .pipe(gulp.dest(path.www + "/templates"));
+};
+
+gulp.task("templates", templatesTask);
+
+var watchProject = function() {
+    gulp.watch(path.src + "css/**/*", ["css-dev"]);
+    gulp.watch(path.src + "img/**/*", ["images"]);
+    gulp.watch(path.src + "modules/**/*.js", ["js-dev"]);
+    gulp.watch(path.src + "modules/**/*.html", ["templates"]);
+    gulp.watch(path.src + "index.html", ["index"]);
+};
+
+
+gulp.task("local", ["images", "favicon", "manifest", "index", "css-dev", "fonts", "js-local", "templates"], watchProject); //idk
+gulp.task("dev", ["images", "favicon", "manifest", "index", "css-dev", "fonts", "js-dev", "templates"], watchProject); // use for developing
+gulp.task("build", ["images", "favicon", "manifest", "index", "css-build", "fonts", "js-build", "templates"]); // use for production build
