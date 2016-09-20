@@ -31,15 +31,37 @@ h5 {
 	font-size: 14px;
 }
 
+hr {
+	margin: 20px 0;
+	border-top:1px solid #444;
+}
+
 //Custom styles
 
-.form-auth {
-	margin-top: 60px;
+.auth-page .list {
+	margin-bottom: 10px;
 }
 
-.padding-tb {
+.auth-page  hr{
+	margin-top: 10px;
+}
+
+.form-auth {
+	margin-top: 20px;
+}
+
+.padding-tb-15 {
 	padding: 15px 0;
 }
+
+.padding-tb-10 {
+	padding: 10px 0;
+}
+
+.forgot-pass {
+	color: #444;
+}
+
 
 
 
