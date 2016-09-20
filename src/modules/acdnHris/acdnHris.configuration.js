@@ -27,6 +27,11 @@
                 url: "/join",
                 templateUrl: "templates/acdnHris.join/acdnHris.join.template.html",
                 controller: "JoinCtrl"
+            })
+            .state("privacy", {
+                url: "/privacy",
+                templateUrl: "templates/acdnHris.privacy/acdnHris.privacy.template.html",
+                controller: "PrivacyCtrl"
             });
             // .state("app", {
             //     url: "/app",

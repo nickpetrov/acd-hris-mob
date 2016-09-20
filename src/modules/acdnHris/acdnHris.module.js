@@ -4,6 +4,7 @@
         .module("acdnHris", [
             "ionic",
             "acdnHris.auth",
-            "acdnHris.join"
+            "acdnHris.join",
+            "acdnHris.privacy"
         ]);
 })();
