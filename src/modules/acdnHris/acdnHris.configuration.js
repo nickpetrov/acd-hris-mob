@@ -23,6 +23,11 @@
                 templateUrl: "templates/acdnHris.auth/acdnHris.auth.template.html",
                 controller: "AuthCtrl"
             })
+            .state("join", {
+                url: "/join",
+                templateUrl: "templates/acdnHris.join/acdnHris.join.template.html",
+                controller: "JoinCtrl"
+            });
             // .state("app", {
             //     url: "/app",
             //     abstract: true,

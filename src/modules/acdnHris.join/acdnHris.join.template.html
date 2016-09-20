@@ -1,5 +1,67 @@
 <ion-view>
-    <ion-content scroll="true" class="auth-page">
-        <h1>{{test}}</h1>
+    <ion-header-bar class="bar bar-positive">
+        <div class="buttons">
+            <button class="button icon-left ion-chevron-left button-clear" ng-click="backButton()"></button>
+        </div>
+        <h1 class="title">Become an ACDN Member</h1>
+    </ion-header-bar>
+    <ion-content scroll="true" class="join-page" padding="true">
+        <p>ACDN membership gives you the resources and information to support your career as an individual, or to best support your people as an employer.</p>
+        <ion-list class="list">
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">First Name <span class="required">*</span></span>
+                <input type="text" placeholder="John">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Last Name <span class="required">*</span></span>
+                <input type="text" placeholder="Smith">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Email address <span class="required">*</span></span>
+                <input type="text" placeholder="johnsmith@gmail.com">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Confirm email address <span class="required">*</span></span>
+                <input type="text" placeholder="johnsmith@gmail.com">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label">Mobile</span>
+                <input type="text" placeholder="+1 xxx xxx xxx">
+            </ion-item>
+
+            <h4>In the aged care sector I am a(n): <span class="required">*</span></h4>
+
+            <ion-radio ng-model="choice" ng-value="'A'" name="unit">Student</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'B'" name="unit">Team Member</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'C'" name="unit">Facility Manager or CCC</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'D'" name="unit">Head Office Management</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'E'" name="unit">Industry Supplier</ion-radio>
+
+            <h4 ng-show="choice == 'C' || choice == 'D' || choice == 'E'">My preferred contact method: <span class="required">*</span></h4>
+
+            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'M'" name="dell">Mobile</ion-radio>
+            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'E'" name="dell">Email</ion-radio>
+
+
+            <div class="padding-tb-15">
+
+                <ion-item class="item item-input item-stacked-label">
+                    <span class="input-label">Password <span class="required">*</span></span>
+                    <input type="password" placeholder="Password">
+                </ion-item>
+
+                <ion-item class="item item-input item-stacked-label">
+                    <span class="input-label">Confirm password <span class="required">*</span></span>
+                    <input type="password" placeholder="Confirm password">
+                </ion-item>
+            </div>
+
+            <p>Items marked with a <span class="required">*</span> are required.</p>
+
+            <div class="button-wrapper">
+                <button class="button button-positive button-block">Join</button>
+            </div>
+        </ion-list>
+
     </ion-content>
 </ion-view>
