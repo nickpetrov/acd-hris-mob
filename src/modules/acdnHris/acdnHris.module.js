@@ -3,6 +3,7 @@
     angular
         .module("acdnHris", [
             "ionic",
-            "acdnHris.auth"
+            "acdnHris.auth",
+            "acdnHris.join"
         ]);
 })();

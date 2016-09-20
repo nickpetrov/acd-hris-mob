@@ -39,6 +39,7 @@ var fonts = [
 var js = [
     path.src + "lib/ionic/js/ionic.bundle.js",
     path.src + "modules/acdnHris.auth/acdnHris.auth.module.js",
+    path.src + "modules/acdnHris.join/acdnHris.join.module.js",
     path.src + "modules/acdnHris/acdnHris.module.js",
     path.src + "modules/acdnHris/**/*.js",
     path.src + "modules/**/*.js"
