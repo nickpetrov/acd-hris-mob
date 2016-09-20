@@ -192,7 +192,7 @@ var templatesTask =  function() {
 gulp.task("templates", templatesTask);
 
 var watchProject = function() {
-    gulp.watch(path.src + "css/**/*", ["css-dev"]);
+    gulp.watch("scss/**/*", ["css-dev"]);
     gulp.watch(path.src + "img/**/*", ["images"]);
     gulp.watch(path.src + "modules/**/*.js", ["js-dev"]);
     gulp.watch(path.src + "modules/**/*.html", ["templates"]);
