@@ -1,8 +1,30 @@
 <ion-view>
-	<ion-header-bar class="bar-positive">
-		<h1 class="title">Signe in</h1>
-	</ion-header-bar>
-	<ion-content>
-		<h1>{{test}}</h1>
+	<ion-content scroll="false">
+		<div class="row">
+			<div class="col">
+				<img src="img/logo.png" alt="logo" class="logo">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<form class="form-auth">
+					<h2>ACDN Login</h2>
+					<div class="list">
+						<label class="item item-input">
+							<span class="input-label mute-text">Username</span>
+							<input type="text" class="mute-text">
+						</label>
+						<label class="item item-input">
+							<span class="input-label mute-text">Password</span>
+							<input type="password" class="mute-text">
+						</label>
+					</div>
+					<div class="padding-tb button-wrapper">
+						<button class="button button-positive button-block">Login</button>
+						<button class="button button-positive button-block">Join ACDN</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>

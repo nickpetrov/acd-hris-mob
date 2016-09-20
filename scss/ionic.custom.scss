@@ -1,7 +1,46 @@
-.gaben-ueban {
-	color: tomato;
+//Common styles
+img {
+	display: inline-block;
+	width: 100%;
 }
 
-.gaben-idi-vgopu {
-	background-color: darkblue;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.mute-text {
+	color: #444 !important;
 }
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 14px;
+}
+
+//Custom styles
+
+.form-auth {
+	margin-top: 60px;
+}
+
+.padding-tb {
+	padding: 15px 0;
+}
+
+
+
+

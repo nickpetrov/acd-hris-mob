@@ -1,0 +1,32 @@
+@media only screen and (min-width : 481px) {
+
+  .logo,
+  .form-auth{
+    display: block;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button-wrapper .button.button-block {
+    display: inline-block;
+    width: auto;
+    float: right;
+    clear: none;
+  }
+
+  .button-wrapper .button.button-block {
+    display: inline-block;
+    width: auto;
+    float: right;
+    clear: none;
+    margin-left: 15px;
+  }
+
+  .button-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
