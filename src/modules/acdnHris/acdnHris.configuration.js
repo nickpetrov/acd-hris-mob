@@ -32,6 +32,12 @@
                 url: "/privacy",
                 templateUrl: "templates/acdnHris.privacy/acdnHris.privacy.template.html",
                 controller: "PrivacyCtrl"
+            })
+            .state("terms", {
+                url: "/terms",
+                templateUrl: "templates/acdnHris.terms/acdnHris.terms.template.html",
+                controller: "TermsCtrl",
+                controllerAs: "terms"
             });
             // .state("app", {
             //     url: "/app",

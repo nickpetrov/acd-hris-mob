@@ -5,6 +5,7 @@
             "ionic",
             "acdnHris.auth",
             "acdnHris.join",
-            "acdnHris.privacy"
+            "acdnHris.privacy",
+            "acdnHris.terms"
         ]);
 })();
