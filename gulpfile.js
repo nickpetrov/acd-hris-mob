@@ -17,11 +17,12 @@ var path = {
 
 var img = [
     path.src + "img/**/*.*",
-    "!" + path.src + "img/favicon.png"
+    "!" + path.src + "img/favicon.png",
+    "!" + path.src + "img/favicon.ico"
 ];
 
 var favicon = [
-    path.src + "img/favicon.png"
+    path.src + "img/favicon.ico"
 ];
 
 var manifest = [
