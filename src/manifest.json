@@ -4,8 +4,8 @@
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "favicon.png",
+    "src": "favicon.ico",
     "sizes": "128x128",
-    "type": "image/png"
+    "type": "image/ico"
   }]
 }
