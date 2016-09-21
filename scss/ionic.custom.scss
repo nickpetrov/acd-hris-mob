@@ -46,8 +46,37 @@ hr {
 	font-size: 12px;
 }
 
-//Custom styles
+.bold-text {
+	font-weight: bold;
+}
 
+.dlist {
+	margin-bottom: 20px;
+}
+
+.dlist dt {
+	margin-bottom: 15px;
+}
+
+.dlist dd {
+	margin-bottom: 15px;
+	padding-left: 10px;
+}
+
+.dlist ul {
+	margin-bottom: 15px;
+	padding-left: 25px;
+	list-style-type: disc;
+}
+
+.dlist ol {
+	margin-bottom: 15px;
+	padding-left: 25px;
+	list-style-type: decimal;
+}
+
+
+//Custom styles
 .auth-page .list {
 	margin-bottom: 10px;
 }
