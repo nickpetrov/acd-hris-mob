@@ -7,6 +7,7 @@
             "acdnHris.auth",
             "acdnHris.join",
             "acdnHris.privacy",
-            "acdnHris.terms"
+            "acdnHris.terms",
+            "acdnHris.resetPassword"
         ]);
 })();

@@ -10,7 +10,8 @@ h4,
 h5,
 h6,
 p,
-ul, ol
+ul,
+ol,
 .mute-text {
 	color: #444 !important;
 }
@@ -145,6 +146,12 @@ hr {
 
 	ol {
 		list-style-type: decimal;
+	}
+}
+
+.reset-page {
+	.button {
+		margin-top: 30px;
 	}
 }
 

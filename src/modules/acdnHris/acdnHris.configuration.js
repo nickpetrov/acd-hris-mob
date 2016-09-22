@@ -41,6 +41,12 @@
                 templateUrl: "templates/acdnHris.terms/acdnHris.terms.template.html",
                 controller: "TermsCtrl",
                 controllerAs: "terms"
+            })
+            .state("reset", {
+                url: "/reset-password",
+                templateUrl: "templates/acdnHris.resetPassword/acdnHris.resetPassword.template.html",
+                controller: "ResetPasswordCtrl",
+                controllerAs: "reset"
             });
             // .state("app", {
             //     url: "/app",
