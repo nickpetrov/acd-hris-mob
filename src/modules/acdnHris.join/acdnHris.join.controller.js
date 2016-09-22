@@ -4,11 +4,14 @@
         .module("acdnHris.join")
         .controller("JoinCtrl", JoinCtrl);
 
-    function JoinCtrl($scope, $state) {
-        $scope.test = "Join page";
+    function JoinCtrl($ionicHistory) {
+        /* jshint validthis: true */
+        var vm = this;
 
-        $scope.backButton = function() {
-            $state.go("auth");
+        vm.backButton = backButton;
+
+        function backButton() {
+            $ionicHistory.goBack(-1);
         }
     }
 

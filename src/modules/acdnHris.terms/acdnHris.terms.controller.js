@@ -4,17 +4,21 @@
         .module("acdnHris.terms")
         .controller("TermsCtrl", TermsCtrl);
 
-    // function TermsCtrl($ionicHistory, CordovaService $ionicPlatform, $cordovaEmailComposer, $error) {
     function TermsCtrl($ionicHistory, CordovaService) {
-        this.test = "Terms page";
+        /* jshint validthis: true */
+        var vm = this;
 
-        this.backButton = function() {
+        vm.test = "Terms page";
+        vm.backButton = backButton;
+        vm.sendMail = sendMail;
+
+        function backButton() {
             $ionicHistory.goBack(-1);
-        };
+        }
 
-        this.sendMail = function() {
+        function sendMail() {
             CordovaService.sendEmail();
-        };
+        }
     }
 
 })();

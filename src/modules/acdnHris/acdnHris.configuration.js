@@ -21,17 +21,20 @@
             .state("auth", {
                 url: "/auth",
                 templateUrl: "templates/acdnHris.auth/acdnHris.auth.template.html",
-                controller: "AuthCtrl"
+                controller: "AuthCtrl",
+                controllerAs: "auth"
             })
             .state("join", {
                 url: "/join",
                 templateUrl: "templates/acdnHris.join/acdnHris.join.template.html",
-                controller: "JoinCtrl"
+                controller: "JoinCtrl",
+                controllerAs: "join"
             })
             .state("privacy", {
                 url: "/privacy",
                 templateUrl: "templates/acdnHris.privacy/acdnHris.privacy.template.html",
-                controller: "PrivacyCtrl"
+                controller: "PrivacyCtrl",
+                controllerAs: "privacy"
             })
             .state("terms", {
                 url: "/terms",
