@@ -29,7 +29,6 @@
                             template: 'Please make sure you have configured an email account and have installed an email app'
                         })
                         .then(function(res) {
-                            console.log(res);
                             $error("You cant send email. Please make sure you have configured an email account and have installed an email app.");
                         });
                     }
