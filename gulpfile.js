@@ -45,6 +45,8 @@ var js = [
     path.src + "modules/acdnHris.privacy/acdnHris.privacy.module.js",
     path.src + "modules/acdnHris.terms/acdnHris.terms.module.js",
     path.src + "modules/acdnHris.resetPassword/acdnHris.resetPassword.module.js",
+    path.src + "modules/acdnHris.app/acdnHris.app.module.js",
+    path.src + "modules/dashboard/dashboard.module.js",
     path.src + "modules/acdnHris/acdnHris.module.js",
     path.src + "modules/acdnHris/**/*.js",
     path.src + "modules/**/*.js"

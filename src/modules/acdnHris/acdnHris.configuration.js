@@ -47,23 +47,24 @@
                 templateUrl: "templates/acdnHris.resetPassword/acdnHris.resetPassword.template.html",
                 controller: "ResetPasswordCtrl",
                 controllerAs: "reset"
+            })
+            .state("app", {
+                url: "/app",
+                abstract: true,
+                templateUrl: "templates/acdnHris.app/acdnHris.app.template.html",
+                controller: "AppCtrl",
+                controllerAs: "app"
+            })
+            .state("app.dashboard", {
+                url: "^/dashboard",
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/dashboard/dashboard.template.html",
+                        controller: "DashboardCtrl",
+                        controllerAs: "dashboard"
+                    }
+                }
             });
-            // .state("app", {
-            //     url: "/app",
-            //     abstract: true,
-            //     templateUrl: "templates/acdnHris.app/acdnHris.app.template.html",
-            //     controller: "AppCtrl"
-            // })
-            // .state("app.search", {
-            //     url: "/search",
-            //     views: {
-            //         "appContent": {
-            //             templateUrl: "templates/acdnHris.search/acdnHris.search.template.html",
-            //             controller: "SearchCtrl"
-
-            //         }
-            //     }
-            // })
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/auth');

@@ -8,6 +8,8 @@
             "acdnHris.join",
             "acdnHris.privacy",
             "acdnHris.terms",
-            "acdnHris.resetPassword"
+            "acdnHris.resetPassword",
+            "acdnHris.app",
+            "acdnHris.dashboard"
         ]);
 })();
