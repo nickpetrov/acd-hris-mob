@@ -4,15 +4,19 @@
         .module("acdnHris.privacy")
         .controller("PrivacyCtrl", PrivacyCtrl);
 
-    function PrivacyCtrl($ionicHistory) {
+    function PrivacyCtrl($ionicHistory, CordovaService) {
         /* jshint validthis: true */
         var vm = this;
 
-        vm.test = "Privacy page";
         vm.backButton = backButton;
+        vm.sendMail = sendMail;
 
         function backButton() {
             $ionicHistory.goBack(-1);
+        }
+
+        function sendMail() {
+            CordovaService.sendEmail();
         }
     }
 

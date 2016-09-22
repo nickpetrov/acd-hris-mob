@@ -28,7 +28,7 @@
                             title: 'You cant send email',
                             template: 'Please make sure you have configured an email account and have installed an email app'
                         })
-                        .then(function(res) {
+                        .then(function() {
                             $error("You cant send email. Please make sure you have configured an email account and have installed an email app.");
                         });
                     }
