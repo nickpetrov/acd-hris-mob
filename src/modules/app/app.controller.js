@@ -21,7 +21,7 @@
         $scope.logout = logout;
 
         //Creating instance of modal
-        $ionicModal.fromTemplateUrl('templates/app/user-menu-modal.html', {
+        $ionicModal.fromTemplateUrl('templates/app/user-menu-modal.template.html', {
             animation: 'slide-in-up',
             scope: $scope
         }).then(function(modal) {
