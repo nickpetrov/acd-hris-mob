@@ -1,9 +1,4 @@
 //Common styles
-img {
-	display: inline-block;
-	width: 100%;
-}
-
 h2,
 h3,
 h4,
@@ -40,6 +35,12 @@ hr {
 	margin: 20px 0;
 	border-top:1px solid #444;
 }
+
+img {
+	display: inline-block;
+	width: 100%;
+}
+
 .required {
 	color: #c00;
 }
@@ -68,30 +69,49 @@ hr {
 	}
 }
 
+.sub-member {
+	padding-left: 30px;
+	font-style: italic;
+}
 
-//Custom styles
-.auth-page {
-
-	.list{
-		margin-bottom: 10px;
+//Ionic grid
+.ionic-grid {
+	.row {
+		flex-wrap: wrap;
 	}
 
+	[class^="col-"] {
+		margin-bottom: 15px;
+	}
+
+	.item {
+		height: 100%;
+		margin-bottom: 15px;
+	}
 }
 
-.auth-page  hr{
-	margin-top: 10px;
-}
 
-.form-auth {
-	margin-top: 20px;
-}
-
+//Ionic padding
 .padding-tb-15 {
 	padding: 15px 0;
 }
 
 .padding-tb-10 {
 	padding: 10px 0;
+}
+
+//Custom styles
+.auth-page {
+	.list{
+		margin-bottom: 10px;
+	}
+	hr {
+		margin-top: 10px;
+	}
+}
+
+.form-auth {
+	margin-top: 20px;
 }
 
 .forgot-pass a {
@@ -134,6 +154,40 @@ hr {
 .reset-page {
 	.button {
 		margin-top: 30px;
+	}
+}
+
+//Board style
+
+.board {
+	min-height: 120px;
+	.board-title {
+		display: block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		font-size: 18px;
+		margin-bottom: 15px;
+		font-weight: bold;
+	}
+	.board-body {
+		position: relative;
+		display: block;
+		white-space: normal;
+		font-size: 14px;
+
+		.thumbnail {
+			position: absolute;
+			display: block;
+			width: 60px;
+			text-align: center;
+			font-size: 60px;
+		}
+
+		.content {
+			display: block;
+			margin-left: 80px;
+		}
 	}
 }
 

@@ -38,3 +38,13 @@
   }
 
 }
+
+//Ionic grid
+@media only screen and (max-width : 567px) {
+  .ionic-grid {
+    .row {
+      flex-wrap: nowrap;
+    }
+  }
+
+}
