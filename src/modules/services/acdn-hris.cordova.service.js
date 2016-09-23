@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris")
+        .module("acdn-hris")
         .service("CordovaService", CordovaService);
 
     function CordovaService(

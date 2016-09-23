@@ -1,6 +1,6 @@
 (function() {
 
     angular
-        .module("acdnHris.join", []);
+        .module("acdn-hris.join", []);
 
 })();

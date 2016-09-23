@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris")
+        .module("acdn-hris")
         .config(acdnHrisConfig)
         .config(acdnHrisStateConfig);
 

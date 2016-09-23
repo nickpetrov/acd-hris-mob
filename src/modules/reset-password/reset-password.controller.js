@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.reset-password")
+        .module("acdn-hris.reset-password")
         .controller("ResetPasswordCtrl", ResetPasswordCtrl);
 
     function ResetPasswordCtrl($ionicHistory) {
@@ -9,6 +9,7 @@
         var vm = this;
 
         vm.backButton = backButton;
+        vm.resetPassword = backButton; //Must be changed
         vm.formData = {
           email: ""
         };

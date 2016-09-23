@@ -1,6 +1,6 @@
 (function() {
 
     angular
-        .module("acdnHris.privacy", []);
+        .module("acdn-hris.privacy", []);
 
 })();

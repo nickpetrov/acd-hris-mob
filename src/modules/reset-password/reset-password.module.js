@@ -1,6 +1,6 @@
 (function() {
 
     angular
-        .module("acdnHris.reset-password", []);
+        .module("acdn-hris.reset-password", []);
 
 })();

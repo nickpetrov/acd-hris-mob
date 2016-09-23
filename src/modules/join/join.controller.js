@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.join")
+        .module("acdn-hris.join")
         .controller("JoinCtrl", JoinCtrl);
 
     function JoinCtrl($ionicHistory) {

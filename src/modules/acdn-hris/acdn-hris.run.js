@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module("acdnHris")
+        .module("acdn-hris")
         .run(acdnHrisRun);
 
     function acdnHrisRun($rootScope, $ionicPlatform, $ionicPopup, $error, $state) {

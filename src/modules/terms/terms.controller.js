@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.terms")
+        .module("acdn-hris.terms")
         .controller("TermsCtrl", TermsCtrl);
 
     function TermsCtrl($ionicHistory, CordovaService) {

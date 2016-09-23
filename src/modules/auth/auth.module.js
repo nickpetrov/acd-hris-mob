@@ -1,6 +1,6 @@
 (function() {
 
 	angular
-		.module("acdnHris.auth", []);
+		.module("acdn-hris.auth", []);
 
 })();

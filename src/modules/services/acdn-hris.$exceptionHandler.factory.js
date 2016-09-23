@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris")
+        .module("acdn-hris")
         .factory("$exceptionHandler", ExceptionHandlerFactory);
 
     function ExceptionHandlerFactory($error) {

@@ -1,7 +1,7 @@
 (function() {
 
 	angular
-		.module("acdnHris.auth")
+		.module("acdn-hris.auth")
 		.controller("AuthCtrl", AuthCtrl);
 
 	function AuthCtrl() {

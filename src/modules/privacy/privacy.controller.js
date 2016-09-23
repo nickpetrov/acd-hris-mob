@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.privacy")
+        .module("acdn-hris.privacy")
         .controller("PrivacyCtrl", PrivacyCtrl);
 
     function PrivacyCtrl($ionicHistory, CordovaService) {
