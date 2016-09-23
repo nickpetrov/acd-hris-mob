@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.dashboard")
+        .module("acdnHris.app")
         .controller("DashboardCtrl", DashboardCtrl);
 
     function DashboardCtrl() {

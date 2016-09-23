@@ -26,32 +26,32 @@
             })
             .state("join", {
                 url: "/join",
-                templateUrl: "templates/acdnHris.join/acdnHris.join.template.html",
+                templateUrl: "templates/join/join.template.html",
                 controller: "JoinCtrl",
                 controllerAs: "join"
             })
             .state("privacy", {
                 url: "/privacy",
-                templateUrl: "templates/acdnHris.privacy/acdnHris.privacy.template.html",
+                templateUrl: "templates/privacy/privacy.template.html",
                 controller: "PrivacyCtrl",
                 controllerAs: "privacy"
             })
             .state("terms", {
                 url: "/terms",
-                templateUrl: "templates/acdnHris.terms/acdnHris.terms.template.html",
+                templateUrl: "templates/terms/terms.template.html",
                 controller: "TermsCtrl",
                 controllerAs: "terms"
             })
             .state("reset", {
                 url: "/reset-password",
-                templateUrl: "templates/acdnHris.resetPassword/acdnHris.resetPassword.template.html",
+                templateUrl: "templates/resetPassword/resetPassword.template.html",
                 controller: "ResetPasswordCtrl",
                 controllerAs: "reset"
             })
             .state("app", {
                 url: "/app",
                 abstract: true,
-                templateUrl: "templates/acdnHris.app/acdnHris.app.template.html",
+                templateUrl: "templates/app/app.template.html",
                 controller: "AppCtrl",
                 controllerAs: "app"
             })

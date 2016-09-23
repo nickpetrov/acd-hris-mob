@@ -9,7 +9,6 @@
             "acdnHris.privacy",
             "acdnHris.terms",
             "acdnHris.resetPassword",
-            "acdnHris.app",
-            "acdnHris.dashboard"
+            "acdnHris.app"
         ]);
 })();
