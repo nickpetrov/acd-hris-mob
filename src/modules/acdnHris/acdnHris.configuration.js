@@ -20,7 +20,7 @@
         $stateProvider
             .state("auth", {
                 url: "/auth",
-                templateUrl: "templates/acdnHris.auth/acdnHris.auth.template.html",
+                templateUrl: "templates/auth/auth.template.html",
                 controller: "AuthCtrl",
                 controllerAs: "auth"
             })
