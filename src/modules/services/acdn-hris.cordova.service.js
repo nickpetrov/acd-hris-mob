@@ -10,10 +10,10 @@
         $error,
         $ionicPopup
     ) {
-        var self = this;
+        var sm = this;
 
         //Function fot sending email
-        self.sendEmail = function() {
+        sm.sendEmail = function() {
             var mailTemplate = {
                 to: 'info@agedcaredn.com.au'
             };
