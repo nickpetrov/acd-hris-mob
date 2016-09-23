@@ -59,30 +59,12 @@ hr {
 	cursor: pointer;
 }
 
-.dlist {
-	margin-bottom: 20px;
-
-	dt {
-		margin-bottom: 15px;
-	}
-
-	dd {
-		margin-bottom: 15px;
-		padding-left: 10px;
-	}
-
-	ul,
-	ol {
-		margin-bottom: 15px;
-		padding-left: 25px;
-	}
-
-	ul {
-		list-style-type: disc;
-	}
-
-	ol {
-		list-style-type: decimal;
+.alert-block {
+	display: block;
+	padding: 10px 20px;
+	&.alert-error {
+		background-color: #e74c3c;
+		color: #fff;
 	}
 }
 
