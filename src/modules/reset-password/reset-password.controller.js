@@ -1,7 +1,7 @@
 (function() {
 
     angular
-        .module("acdnHris.resetPassword")
+        .module("acdnHris.reset-password")
         .controller("ResetPasswordCtrl", ResetPasswordCtrl);
 
     function ResetPasswordCtrl($ionicHistory) {

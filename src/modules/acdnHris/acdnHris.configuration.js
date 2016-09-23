@@ -44,7 +44,7 @@
             })
             .state("reset", {
                 url: "/reset-password",
-                templateUrl: "templates/resetPassword/resetPassword.template.html",
+                templateUrl: "templates/reset-password/reset-password.template.html",
                 controller: "ResetPasswordCtrl",
                 controllerAs: "reset"
             })

@@ -44,7 +44,7 @@ var js = [
     path.src + "modules/join/join.module.js",
     path.src + "modules/privacy/privacy.module.js",
     path.src + "modules/terms/terms.module.js",
-    path.src + "modules/resetPassword/resetPassword.module.js",
+    path.src + "modules/reset-password/reset-password.module.js",
     path.src + "modules/app/app.module.js",
     path.src + "modules/acdnHris/acdnHris.module.js",
     path.src + "modules/acdnHris/**/*.js",
