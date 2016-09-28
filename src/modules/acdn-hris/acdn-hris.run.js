@@ -4,7 +4,14 @@
         .module("acdn-hris")
         .run(acdnHrisRun);
 
-    function acdnHrisRun($rootScope, $ionicPlatform, $ionicPopup, $error, $state) {
+    function acdnHrisRun(
+        $rootScope,
+        $ionicPlatform,
+        $ionicPopup,
+        $error,
+        $state,
+        $timeout
+    ) {
 
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,6 +24,9 @@
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
+            }
+            if (window.navigator) {
+                navigator.splashscreen.hide();
             }
         });
 
