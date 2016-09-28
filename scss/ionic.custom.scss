@@ -1,3 +1,5 @@
+$color-red: #e74c3c;
+
 //Common styles
 h2,
 h3,
@@ -42,7 +44,7 @@ img {
 }
 
 .required {
-	color: #c00;
+	color: $color-red;
 }
 
 .small-text {
@@ -64,7 +66,7 @@ img {
 	display: block;
 	padding: 10px 20px;
 	&.alert-error {
-		background-color: #e74c3c;
+		background-color: $color-red;
 		color: #fff;
 	}
 }
@@ -72,6 +74,10 @@ img {
 .sub-member {
 	padding-left: 30px;
 	font-style: italic;
+}
+
+.text-error {
+	color: $color-red !important;
 }
 
 //Ionic grid

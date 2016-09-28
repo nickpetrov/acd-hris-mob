@@ -7,31 +7,37 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<form class="form-auth" name="formAuth" ng-submit="auth.login()">
+				<form class="form-auth" name="auth.formAuth" ng-submit="auth.login()">
 					<h2>ACDN Login</h2>
 					<div class="list">
 						<label class="item item-input">
-							<span class="input-label mute-text">Username</span>
+							<span class="input-label mute-text"
+								  ng-class="{'text-error': !auth.formAuth.userName.$valid && auth.errorAlert}">Username
+							</span>
 							<input type="text"
 								   class="mute-text"
 								   name="userName"
 								   ng-model="auth.formData.userName"
-								   ng-required="required"
+								   ng-required="true"
+								   ng-minlength="3"
 								   ng-change="auth.errorAlert = false"
 							>
 						</label>
 						<label class="item item-input">
-							<span class="input-label mute-text">Password</span>
+							<span class="input-label mute-text"
+								  ng-class="{'text-error': !auth.formAuth.password.$valid && auth.errorAlert}">Password
+							</span>
 							<input type="password"
 								   class="mute-text"
 								   name="password"
 								   ng-model="auth.formData.password"
-								   ng-required="required"
+								   ng-required="true"
+								   ng-minlength="6"
 								   ng-change="auth.errorAlert = false"
 							>
 						</label>
 					</div>
-					<div class="alert-block alert-error" ng-show="auth.errorAlert">
+					<div class="alert-block alert-error" ng-show="!auth.formAuth.$valid && auth.errorAlert">
 						<span>Incorrect username or password</span>
 					</div>
 					<div class="padding-tb-10 button-wrapper">

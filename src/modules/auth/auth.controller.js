@@ -19,7 +19,7 @@
 		};
 
 		function login() {
-			if(vm.formData.userName != "" && vm.formData.password != "") {
+			if(vm.formData.userName && vm.formData.password) {
 				UserService.userInfo = vm.formData;
 				vm.errorAlert = false;
 				$state.go("app.dashboard");
