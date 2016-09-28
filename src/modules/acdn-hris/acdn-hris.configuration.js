@@ -104,6 +104,17 @@
                         controllerAs: "rewards"
                     }
                 }
+            })
+            .state("app.upskilling", {
+                url: "^/upskilling",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/upskilling/upskilling.template.html",
+                        controller: "UpskillingCtrl",
+                        controllerAs: "upskilling"
+                    }
+                }
             });
 
         // if none of the above states are matched, use this as the fallback
