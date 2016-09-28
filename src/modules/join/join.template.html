@@ -31,16 +31,16 @@
 
             <h4>In the aged care sector I am a(n): <span class="required">*</span></h4>
 
-            <ion-radio ng-model="choice" ng-value="'A'" name="unit">Student</ion-radio>
-            <ion-radio ng-model="choice" ng-value="'B'" name="unit">Team Member</ion-radio>
-            <ion-radio ng-model="choice" ng-value="'C'" name="unit">Facility Manager or CCC</ion-radio>
-            <ion-radio ng-model="choice" ng-value="'D'" name="unit">Head Office Management</ion-radio>
-            <ion-radio ng-model="choice" ng-value="'E'" name="unit">Industry Supplier</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'A'" name="sector">Student</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'B'" name="sector">Team Member</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'C'" name="sector">Facility Manager or CCC</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'D'" name="sector">Head Office Management</ion-radio>
+            <ion-radio ng-model="choice" ng-value="'E'" name="sector">Industry Supplier</ion-radio>
 
             <h4 ng-show="choice == 'C' || choice == 'D' || choice == 'E'">My preferred contact method: <span class="required">*</span></h4>
 
-            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'M'" name="dell">Mobile</ion-radio>
-            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'E'" name="dell">Email</ion-radio>
+            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'M'" name="contacts">Mobile</ion-radio>
+            <ion-radio ng-show="choice == 'C' || choice == 'D' || choice == 'E'" ng-model="contactMethod" ng-value="'E'" name="contacts">Email</ion-radio>
 
 
             <div class="padding-tb-15">
