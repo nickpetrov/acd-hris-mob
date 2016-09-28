@@ -82,6 +82,17 @@
                         controllerAs: "portfolio"
                     }
                 }
+            })
+            .state("app.kiosk", {
+                url: "^/kiosk",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/kiosk/kiosk.template.html",
+                        controller: "KioskCtrl",
+                        controllerAs: "kiosk"
+                    }
+                }
             });
 
         // if none of the above states are matched, use this as the fallback
