@@ -10,7 +10,6 @@
         var vm = this;
 
         vm.userInfo = UserService.userInfo;
-        vm.test = "Portfolio page";
     }
 
 })();

@@ -1,5 +1,18 @@
 <ion-view view-title="My ePortfolio">
-    <ion-content padding="true" class="portfolio-page">
-        <h1>{{portfolio.test}}</h1>
+    <ion-content class="portfolio-page" scroll="true">
+        <ion-item class="item item-thumbnail-left">
+            <img src="img/avatar.jpeg">
+            <h3><span ng-bind="portfolio.userInfo.userName ? portfolio.userInfo.userName : 'John'"></span> Bloggs</h3>
+            <h4><span class="bold-text">Preferred name: </span>Spirit</h4>
+            <h4><span class="bold-text">DOB: </span>Example</h4>
+            <h4><span class="bold-text">Email: </span>sandbox@agedcaredn.com.au</h4>
+            <h4><span class="bold-text">Mobile: </span>0412345678</h4>
+            <button class="button button-positive button-small">Change photo</button>
+            <button class="button button-positive button-small">Edit details</button>
+        </ion-item>
+        <ion-item>
+            <h3 class="section-title">Education</h3>
+        </ion-item>
+        <ion-item>zczxcx</ion-item>
     </ion-content>
 </ion-view>
