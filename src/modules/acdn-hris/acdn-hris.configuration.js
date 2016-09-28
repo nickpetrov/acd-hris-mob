@@ -93,6 +93,17 @@
                         controllerAs: "kiosk"
                     }
                 }
+            })
+            .state("app.rewards", {
+                url: "^/rewards",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/rewards/rewards.template.html",
+                        controller: "RewardsCtrl",
+                        controllerAs: "rewards"
+                    }
+                }
             });
 
         // if none of the above states are matched, use this as the fallback
