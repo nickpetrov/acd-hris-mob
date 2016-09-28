@@ -71,6 +71,17 @@
                         controllerAs: "dashboard"
                     }
                 }
+            })
+            .state("app.portfolio", {
+                url: "^/portfolio",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/portfolio/portfolio.template.html",
+                        controller: "PortfolioCtrl",
+                        controllerAs: "portfolio"
+                    }
+                }
             });
 
         // if none of the above states are matched, use this as the fallback
