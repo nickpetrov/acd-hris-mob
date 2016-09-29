@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-positive">
+        <h1 class="title">Add new item to education</h1>
+        <div class="buttons">
+            <button class="button button-clear icon ion-close" ng-click="hideModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+
+        <form name="educationForm" novalidate>
+            <ion-list class="list">
+                <ion-item class="item item-input item-stacked-label">
+                    <span class="input-label bold-text">Training organisation <span class="required">*</span></span>
+                    <input type="text"
+                           placeholder="Training organisation"
+                           class="mute-text"
+                           ng-model="educationData.org"
+                    >
+                </ion-item>
+                <ion-item class="item item-input item-stacked-label">
+                    <span class="input-label bold-text">Course <span class="required">*</span></span>
+                    <input type="text"
+                           placeholder="Course"
+                           class="mute-text"
+                           ng-model="educationData.course"
+                    >
+                </ion-item>
+                <ion-item class="item item-input item-stacked-label">
+                    <span class="input-label bold-text">Dates attended <span class="required">*</span></span>
+                </ion-item>
+            </ion-list>
+            <div class="button-wrapper padding">
+                <button class="button button-positive button-block" ng-click="consoleQW()">Save</button>
+                <button class="button button-assertive button-block" ui-sref="app.portfolio">Cancel</button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-modal-view>
