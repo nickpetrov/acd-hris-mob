@@ -47,6 +47,7 @@
         //Action after pressing "My Details" button in user menu
         function showMyDetails() {
             userMenuModal.hide();
+            $state.go("app.userDetails");
         }
 
         //Action after pressing "Logout" button in user menu

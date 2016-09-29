@@ -1,0 +1,52 @@
+<ion-view view-title="Edit My Details">
+    <ion-content padding="true" class="user-page">
+        <ion-list class="list">
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">Preferred name</span>
+                <input type="text"
+                       placeholder="Preferred name"
+                       class="mute-text"
+                       ng-model="user.formData.preferred"
+                >
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">First Name</span>
+                <input type="text"
+                       placeholder="First Name"
+                       class="mute-text"
+                       ng-model="user.formData.firstName"
+                >
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">Last Name</span>
+                <input type="text"
+                       placeholder="Last Name"
+                       class="mute-text"
+                       ng-model="user.formData.lastName">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">Date of birth</span>
+                <input type="text"
+                       placeholder="Date of birth"
+                       class="mute-text"
+                       ng-model="user.formData.birth"
+                >
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">Email address</span>
+                <input type="text"
+                       placeholder="Email address"
+                       class="mute-text"
+                       ng-model="user.formData.email">
+            </ion-item>
+            <ion-item class="item item-input item-stacked-label">
+                <span class="input-label bold-text">Mobile number</span>
+                <input type="text"
+                       placeholder="Mobile number"
+                       class="mute-text"
+                       ng-model="user.formData.mobile">
+            </ion-item>
+            <button class="button button-positive button-block" ng-click="user.saveUserDetails()">Save</button>
+        </ion-list>
+    </ion-content>
+</ion-view>

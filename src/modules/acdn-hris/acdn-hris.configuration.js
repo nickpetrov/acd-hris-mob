@@ -83,6 +83,17 @@
                     }
                 }
             })
+            .state("app.userDetails", {
+                url: "^/user-details",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/user-details/user-details.template.html",
+                        controller: "UserDetailsCtrl",
+                        controllerAs: "user"
+                    }
+                }
+            })
             .state("app.kiosk", {
                 url: "^/kiosk",
                 cache: false,
