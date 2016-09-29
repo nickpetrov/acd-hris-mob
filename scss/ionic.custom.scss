@@ -7,10 +7,16 @@ h3,
 h4,
 h5,
 h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 p,
 ul,
 ol,
 .mute-text {
+	display: block;
 	color: #444 !important;
 }
 
@@ -18,19 +24,23 @@ p {
 	text-align: center;
 }
 
-h2 {
+h2,
+.h2{
 	font-size: 24px;
 }
 
-h3 {
+h3,
+.h3{
 	font-size: 18px;
 }
 
-h4 {
+h4,
+.h4{
 	font-size: 16px;
 }
 
-h5 {
+h5,
+.h5{
 	font-size: 14px;
 }
 
@@ -220,17 +230,63 @@ img {
 		margin-left: 20px;
 	}
 
-	.section-title {
+	.section-title-block {
+		text-align: left;
+		margin-bottom: 5px;
+	}
+
+	.section-title,
+	.section-title-icon {
 		display: inline-block;
 		vertical-align: middle;
-		&:after {
-			content: "\f216";
-			display: inline-block;
-			margin-left: 5px;
-			font-family: "Ionicons";
-			font-size: 24px;
-			vertical-align: middle;
-			color: $color-green;
+		margin: 0;
+	}
+
+	.section-title {
+		font-size: 16px;
+	}
+
+	.section-title-icon {
+		font-size: 24px;
+		color: $color-green;
+	}
+
+	.sub-item {
+		position: relative;
+		padding-left: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid #ddd;
+
+		&:first-of-type {
+			padding-top: 0;
+		}
+
+		&:last-of-type {
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+
+		.button-delete {
+			position: absolute;
+			top: 5px;
+			right: 0;
+		}
+
+		.button-edit {
+			position: absolute;
+			top: 5px;
+			right: 45px;
+		}
+	}
+
+	.sub-title {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 14px;
+
+		&:last-of-type {
+			margin-bottom: 0;
 		}
 	}
 }
