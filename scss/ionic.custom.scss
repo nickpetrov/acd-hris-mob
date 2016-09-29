@@ -291,7 +291,17 @@ img {
 	}
 }
 
-
+.photo-page {
+	&-title {
+		margin-bottom: 20px;
+	}
+	img {
+		display: block;
+		width: 60%;
+		max-width: 250px;
+		margin: 0 auto 30px;
+	}
+}
 
 
 

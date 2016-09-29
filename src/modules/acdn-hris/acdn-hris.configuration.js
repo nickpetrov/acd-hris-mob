@@ -94,6 +94,17 @@
                     }
                 }
             })
+            .state("app.changePhoto", {
+                url: "^/change-photo",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/change-photo/change-photo.template.html",
+                        controller: "ChangePhotoCtrl",
+                        controllerAs: "photo"
+                    }
+                }
+            })
             .state("app.kiosk", {
                 url: "^/kiosk",
                 cache: false,
