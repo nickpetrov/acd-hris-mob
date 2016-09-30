@@ -16,17 +16,10 @@
                 <span class="section-title-icon ion-plus-circled"
                       ng-click="portfolio.showModal('education')"></span>
             </div>
-            <div class="sub-item">
-                <span class="sub-title bold-text">Certificate IV in Aged Care</span>
-                <span class="sub-title bold-text">Chishoim Institute</span>
-                <span class="sub-title">November 2001 - September 2002</span>
-                <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit"></button>
-            </div>
-            <div class="sub-item">
-                <span class="sub-title bold-text">Certificate IV in Aged Care</span>
-                <span class="sub-title bold-text">Chishoim Institute</span>
-                <span class="sub-title">November 2001 - September 2002</span>
+            <div class="sub-item" ng-repeat="i in portfolio.itemsEducation track by $index">
+                <span class="sub-title bold-text" ng-bind="i.org"></span>
+                <span class="sub-title bold-text" ng-bind="i.course">Chishoim Institute</span>
+                <span class="sub-title"><span ng-bind="i.dateFrom"></span> - <span ng-bind="i.dateTo"></span></span>
                 <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
                 <button class="button button-positive button-small button-edit icon ion-edit"></button>
             </div>

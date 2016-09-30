@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var del = require('del');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var cleanCss = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var ngConfig = require('gulp-ng-config');
@@ -40,6 +39,8 @@ var fonts = [
 var js = [
     path.src + "lib/ionic/js/ionic.bundle.js",
     path.src + "lib/ngCordova/dist/ng-cordova.js",
+    path.src + "lib/moment/moment.js",
+    path.src + "lib/onezone-datepicker/dist/onezone-datepicker.min.js",
     path.src + "modules/auth/auth.module.js",
     path.src + "modules/join/join.module.js",
     path.src + "modules/privacy/privacy.module.js",

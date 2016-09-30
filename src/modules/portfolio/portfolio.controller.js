@@ -7,7 +7,8 @@
     function PortfolioCtrl(
         $scope,
         $ionicModal,
-        UserService
+        PortfolioService,
+        Moment
     ) {
         var vm = this;
         var modalInstance = null;
@@ -16,15 +17,24 @@
             experience: "templates/portfolio/experience.modal.template.html"
         };
 
-        vm.userInfo = UserService.userInfo;
         vm.showModal = showModal;
-
-        $scope.hideModal = hideModal;
-        $scope.consoleQW = consoleQW;//Delete
-        $scope.educationData = {
-            org: "",
-            course: "",
-            date: ""
+        vm.hideModal = hideModal;
+        vm.saveModalData = saveModalData;
+        vm.alertForm = false;
+        vm.itemsEducation = PortfolioService.getAllEducations();
+        vm.newEducation = {};
+        vm.newExperience = {};
+        vm.dateFrom = {
+            date: new Date(),
+            callback: function(value){
+                vm.newEducation.dateFrom = value;
+            }
+        };
+        vm.dateTo = {
+            date: new Date(),
+            callback: function(value){
+                vm.newEducation.dateTo = value;
+            }
         };
 
         function showModal(name) {
@@ -37,16 +47,34 @@
             });
         }
 
+        function cleanModal() {
+            vm.newEducation = {};
+            vm.newExperience = {};
+        }
+
         function hideModal() {
             modalInstance.hide();
             modalInstance = null;
         }
 
-        function consoleQW() {//Delete
-            console.log($scope.educationData);
+        function saveModalData(label) {
+            var result = null;
+            if($scope.portfolio.modalForm.$valid && vm.newEducation.dateFrom && vm.newEducation.dateTo) {
+                result = {};
+                if(label == "education") {
+                    result.org = vm.newEducation.org;
+                    result.course = vm.newEducation.course;
+                    result.dateFrom = Moment(vm.newEducation.dateFrom).format("MMMM YYYY");
+                    result.dateTo = Moment(vm.newEducation.dateTo).format("MMMM YYYY");
+
+                    PortfolioService.addNewItem("education", result);
+                }
+
+                result = null;
+                cleanModal();
+                hideModal();
+            }
         }
-
-
     }
 
 })();

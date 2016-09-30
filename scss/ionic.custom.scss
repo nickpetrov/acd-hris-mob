@@ -76,6 +76,7 @@ img {
 .alert-block {
 	display: block;
 	padding: 10px 20px;
+	transition: all 3s ease-in-out;
 	&.alert-error {
 		background-color: $color-red;
 		color: #fff;
@@ -93,17 +94,27 @@ img {
 
 //Ionic grid
 .ionic-grid {
+
 	.row {
 		flex-wrap: wrap;
 	}
 
 	[class^="col-"] {
 		margin-bottom: 15px;
+		display: flex;
 	}
 
 	.item {
 		height: 100%;
 		margin-bottom: 15px;
+	}
+}
+
+//Ionic grid
+.education-page-grid {
+	padding-right: 16px;
+	.education-page-row {
+		flex-direction: column;
 	}
 }
 
@@ -115,6 +126,14 @@ img {
 
 .padding-tb-10 {
 	padding: 10px 0;
+}
+
+.padding-lr-15 {
+	padding: 0 15px;
+}
+
+.padding-lr-10 {
+	padding: 0 10px;
 }
 
 //Custom styles

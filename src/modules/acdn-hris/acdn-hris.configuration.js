@@ -11,7 +11,7 @@
         $ionicConfigProvider.backButton.previousTitleText(false);
         $ionicConfigProvider.backButton.text('').icon('ion-chevron-left');
 
-        //Align of
+        //Align of titles
         $ionicConfigProvider.navBar.alignTitle('center');
 
     }

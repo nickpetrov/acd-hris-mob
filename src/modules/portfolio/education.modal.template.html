@@ -2,19 +2,20 @@
     <ion-header-bar class="bar bar-positive">
         <h1 class="title">Add new item to education</h1>
         <div class="buttons">
-            <button class="button button-clear icon ion-close" ng-click="hideModal()"></button>
+            <button class="button button-clear icon ion-close" ng-click="portfolio.hideModal()"></button>
         </div>
     </ion-header-bar>
     <ion-content>
 
-        <form name="educationForm" novalidate>
+        <form name="portfolio.modalForm" novalidate>
             <ion-list class="list">
                 <ion-item class="item item-input item-stacked-label">
                     <span class="input-label bold-text">Training organisation <span class="required">*</span></span>
                     <input type="text"
                            placeholder="Training organisation"
                            class="mute-text"
-                           ng-model="educationData.org"
+                           ng-model="portfolio.newEducation.org"
+                           ng-required="true"
                     >
                 </ion-item>
                 <ion-item class="item item-input item-stacked-label">
@@ -22,16 +23,37 @@
                     <input type="text"
                            placeholder="Course"
                            class="mute-text"
-                           ng-model="educationData.course"
+                           ng-model="portfolio.newEducation.course"
+                           ng-required="true"
                     >
                 </ion-item>
-                <ion-item class="item item-input item-stacked-label">
+                <ion-item class="item item-input item-stacked-label education-page-grid">
                     <span class="input-label bold-text">Dates attended <span class="required">*</span></span>
+                    <div class="row education-page-row">
+                        <div class="col-100">
+                            <onezone-datepicker datepicker-object="portfolio.dateFrom">
+                                <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                                    {{portfolio.newEducation.dateFrom ? portfolio.newEducation.dateFrom : "Set date from" | date:'dd MMMM yyyy'}}
+                                </button>
+                            </onezone-datepicker>
+                        </div>
+                        <div class="col-100">
+                            <onezone-datepicker datepicker-object="portfolio.dateTo">
+                                <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                                    {{portfolio.newEducation.dateTo ? portfolio.newEducation.dateTo : "Set date to" | date:'dd MMMM yyyy'}}
+                                </button>
+                            </onezone-datepicker>
+                        </div>
+                    </div>
                 </ion-item>
             </ion-list>
-            <div class="button-wrapper padding">
-                <button class="button button-positive button-block" ng-click="consoleQW()">Save</button>
-                <button class="button button-assertive button-block" ui-sref="app.portfolio">Cancel</button>
+            <div class="row responsive-sm">
+                <div class="col-50 padding-lr-10">
+                    <button class="button button-positive button-block" ng-click="portfolio.saveModalData('education')">Save</button>
+                </div>
+                <div class="col-50 padding-lr-10">
+                    <button class="button button-assertive button-block" ng-click="portfolio.hideModal()">Cancel</button>
+                </div>
             </div>
         </form>
 

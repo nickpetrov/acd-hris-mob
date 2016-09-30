@@ -9,8 +9,7 @@
         $ionicPlatform,
         $ionicPopup,
         $error,
-        $state,
-        $timeout
+        $state
     ) {
 
         $ionicPlatform.ready(function () {
@@ -26,7 +25,7 @@
                 StatusBar.styleDefault();
             }
             if (window.navigator) {
-                navigator.splashscreen.hide();
+                // navigator.splashscreen.hide();
             }
         });
 

@@ -4,6 +4,7 @@
         .module("acdn-hris", [
             "ionic",
             "ngCordova",
+            "onezone-datepicker",
             "acdn-hris.auth",
             "acdn-hris.join",
             "acdn-hris.privacy",
