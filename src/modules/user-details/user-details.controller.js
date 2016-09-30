@@ -10,19 +10,25 @@
     ) {
         /* jshint validthis: true */
         var vm = this;
+        var userInfo = UserService.getUserInfo();
 
-        vm.userInfo = UserService.userInfo;
         vm.saveUserDetails = saveUserDetails;
         vm.formData = {
-            preferred: "Spirit",
-            firstName: vm.userInfo.userName ? vm.userInfo.userName : 'John',
-            lastName: "Bloggs",
-            birth: "12/09/1985",
-            email:  "sandbox@agedcaredn.com.au",
-            mobile: "0412345678"
+            preferred: userInfo.preferred,
+            firstName: userInfo.firstName ? userInfo.firstName : 'John',
+            lastName: userInfo.lastName,
+            birth: userInfo.birth,
+            email:  userInfo.email,
+            mobile: userInfo.mobile
         };
 
         function saveUserDetails() {
+            userInfo.preferred = vm.formData.preferred;
+            userInfo.firstName = vm.formData.firstName;
+            userInfo.lastName = vm.formData.lastName;
+            userInfo.birth = vm.formData.birth;
+            userInfo.email = vm.formData.email;
+            userInfo.mobile = vm.formData.mobile;
             $ionicHistory.goBack();
         }
 
