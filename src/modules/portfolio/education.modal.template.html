@@ -14,7 +14,7 @@
                     <input type="text"
                            placeholder="Training organisation"
                            class="mute-text"
-                           ng-model="portfolio.newEducation.org"
+                           ng-model="portfolio.newItem.education.org"
                            ng-required="true"
                     >
                 </ion-item>
@@ -23,7 +23,7 @@
                     <input type="text"
                            placeholder="Course"
                            class="mute-text"
-                           ng-model="portfolio.newEducation.course"
+                           ng-model="portfolio.newItem.education.course"
                            ng-required="true"
                     >
                 </ion-item>
@@ -33,14 +33,14 @@
                         <div class="col-100">
                             <onezone-datepicker datepicker-object="portfolio.dateFrom">
                                 <button class="button button-block button-outline button-positive show-onezone-datepicker">
-                                    {{portfolio.newEducation.dateFrom ? portfolio.newEducation.dateFrom : "Set date from" | date:'dd MMMM yyyy'}}
+                                    {{portfolio.newItem.education.dateFrom ? portfolio.newItem.education.dateFrom : "Set date from" | date:'dd MMMM yyyy'}}
                                 </button>
                             </onezone-datepicker>
                         </div>
                         <div class="col-100">
                             <onezone-datepicker datepicker-object="portfolio.dateTo">
                                 <button class="button button-block button-outline button-positive show-onezone-datepicker">
-                                    {{portfolio.newEducation.dateTo ? portfolio.newEducation.dateTo : "Set date to" | date:'dd MMMM yyyy'}}
+                                    {{portfolio.newItem.education.dateTo ? portfolio.newItem.education.dateTo : "Set date to" | date:'dd MMMM yyyy'}}
                                 </button>
                             </onezone-datepicker>
                         </div>

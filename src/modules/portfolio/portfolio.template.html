@@ -21,7 +21,8 @@
                 <span class="sub-title bold-text" ng-bind="i.course">Chishoim Institute</span>
                 <span class="sub-title"><span ng-bind="i.dateFrom"></span> - <span ng-bind="i.dateTo"></span></span>
                 <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit"></button>
+                <button class="button button-positive button-small button-edit icon ion-edit"
+                        ng-click="portfolio.editPortfolioItem('education', $index)"></button>
             </div>
         </ion-item>
         <ion-item>

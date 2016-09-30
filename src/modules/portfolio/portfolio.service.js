@@ -26,11 +26,16 @@
         };
 
         sm.addNewItem = addNewItem;
+        sm.getItemByIndex = getItemByIndex;
         sm.getAllEducations = getAllEducations;
         sm.getAllExperiences = getAllExperiences;
 
         function addNewItem(label, data) {
             sm.portfolioInfo[label].push(data);
+        }
+
+        function getItemByIndex(label, index) {
+            return sm.portfolioInfo[label][index];
         }
         
         function getAllEducations() {
