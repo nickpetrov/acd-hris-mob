@@ -26,6 +26,7 @@
         vm.alertForm = false;
         vm.itemsEducation = PortfolioService.getAllEducations();
         vm.newItem = {
+            currentIndex: null,
             education: {},
             experience: {}
         };
@@ -60,12 +61,6 @@
         function hideModal() {
             modalInstance.hide();
             modalInstance = null;
-        }
-
-        function editPortfolioItem(label, index) {
-            console.log(PortfolioService.getItemByIndex(label, index));
-            // vm.newItem[label] = PortfolioService.getItemByIndex(label, index);
-            // showModal(label);
         }
 
         function saveModalData(label) {
