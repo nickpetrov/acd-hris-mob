@@ -22,7 +22,6 @@
         vm.showModal = showModal;
         vm.hideModal = hideModal;
         vm.saveModalData = saveModalData;
-        vm.editPortfolioItem = editPortfolioItem;
         vm.alertForm = false;
         vm.itemsEducation = PortfolioService.getAllEducations();
         vm.newItem = {
