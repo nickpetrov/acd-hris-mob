@@ -76,7 +76,6 @@ img {
 .alert-block {
 	display: block;
 	padding: 10px 20px;
-	transition: all 3s ease-in-out;
 	&.alert-error {
 		background-color: $color-red;
 		color: #fff;

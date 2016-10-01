@@ -37,7 +37,7 @@
 							>
 						</label>
 					</div>
-					<div class="alert-block alert-error" ng-show="!auth.formAuth.$valid && auth.errorAlert">
+					<div class="alert-block alert-error" ng-if="!auth.formAuth.$valid && auth.errorAlert">
 						<span>Incorrect username or password</span>
 					</div>
 					<div class="padding-tb-10 button-wrapper">

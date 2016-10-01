@@ -47,6 +47,11 @@
                     </div>
                 </ion-item>
             </ion-list>
+            <div class="padding">
+                <div class="alert-block alert-error" ng-if="portfolio.alertForm">
+                    <span>Please fill all required fields with correct data</span>
+                </div>
+            </div>
             <div class="row responsive-sm">
                 <div class="col-50 padding-lr-10">
                     <button class="button button-positive button-block" ng-click="portfolio.saveModalData('education')">Save</button>

@@ -7,8 +7,10 @@
     function PortfolioCtrl(
         $scope,
         $ionicModal,
+        $timeout,
         PortfolioService,
         Moment
+
     ) {
         var vm = this;
         var modalInstance = null;
@@ -75,13 +77,17 @@
                     result.course = vm.newItem.education.course;
                     result.dateFrom = Moment(vm.newItem.education.dateFrom).format("MMMM YYYY");
                     result.dateTo = Moment(vm.newItem.education.dateTo).format("MMMM YYYY");
-
                     PortfolioService.addNewItem(label, result);
+
                 }
                 result = null;
                 cleanModal();
                 hideModal();
             }
+            vm.alertForm = true;
+            $timeout(function() {
+                vm.alertForm = false;
+            }, 3000);
         }
     }
 
