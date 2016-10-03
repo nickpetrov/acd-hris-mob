@@ -4,7 +4,9 @@
         .module("acdn-hris.privacy")
         .controller("PrivacyCtrl", PrivacyCtrl);
 
-    function PrivacyCtrl($ionicHistory, CordovaService) {
+    function PrivacyCtrl(
+        $ionicHistory, CordovaService
+    ) {
         /* jshint validthis: true */
         var vm = this;
 

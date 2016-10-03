@@ -5,6 +5,7 @@
         .service("PortfolioService", PortfolioService);
 
     function PortfolioService() {
+        /* jshint validthis: true */
         var sm = this;
 
         sm.portfolioInfo = {

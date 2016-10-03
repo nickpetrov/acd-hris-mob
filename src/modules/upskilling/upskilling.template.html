@@ -1,5 +1,85 @@
-<ion-view view-title="Upskilling">
+    <ion-view view-title="Upskilling">
     <ion-content padding="true" class="upskilling-page">
-        <h1>{{upskilling.test}}</h1>
+        <div class="ionic-content join-page">
+            <p class="bold-text text-justify">Upskilling information is currently only available online for residents of Victoria. For other states, please contact us.</p>
+            <p class="text-justify">Working in aged care is not like other jobs. It is not like working in an office environment in the city. Being an aged care professional means staying on top of your knowledge because if you do not, people might die.</p>
+            <p class="text-justify">There are a wide variety of education and training opportunities for people who work in aged care. It might be the next step qualification, moving from the Certificate III in Aged Care up to the Certificate IV in Aged Care, or it might be something completely different such as learning some IT or language skills. At ACDN we believe a mix of these various options is best.</p>
+            <p class="text-justify">Depending upon your role, your current qualification and where in Australia you live, there are a variety of courses and government funding options. Answer the short questions below for an indication of what you might be eligible for.</p>
+
+            <div class="list">
+                <label class="item item-select-custom">
+                    <span class="label-custom">Citizenship/Residency</span>
+                    <select class="select-custom" ng-options="c.name for c in skill.citizenships" ng-model="skill.selectData.citizenships"></select>
+                </label>
+            </div>
+
+            <div class="list" ng-if="skill.selectData.citizenships">
+                <label class="item item-select-custom">
+                    <span class="label-custom">Highest Qualification Level</span>
+                    <select class="select-custom" ng-options="c.name for c in skill.qualification" ng-model="skill.selectData.qualification"></select>
+                </label>
+            </div>
+
+            <div class="list" ng-if="skill.selectData.qualification">
+                <label class="item item-select-custom">
+                    <span class="label-custom">Study Status</span>
+                    <select class="select-custom" ng-options="c.name for c in skill.studyStatus" ng-model="skill.selectData.studyStatus"></select>
+                </label>
+            </div>
+
+            <div ng-if="skill.selectData.citizenships && skill.selectData.qualification && skill.selectData.studyStatus">
+                <h3>Funding</h3>
+                <p>Based on the information received <span class="bold-text">you may be eligible for a government-subsidised training</span> at a <span class="bold-text">Diploma level or higher.</span></p>
+                <p>Please note you are only eligible to commence a maximum of two government-subsidised courses at the same qualification level in your lifetime.</p>
+                <h3>Suggested CoursesSuggested Courses</h3>
+
+                <div class="row responsive-sm">
+                    <div class="col">
+                        <div class="card-block padding">
+                            <h3>Certificate III in Individual Support</h3>
+                            <p>The Certificate III in Individual Support is a newly released course in 2016. This qualification is highly regarded as it replaces three current qualifications:</p>
+                            <ol>
+                                <li>Certificate III in Aged Care (<span class="bold-text">CHC30212</span>),</li>
+                                <li>Certificate III in Home and Community Care (<span class="bold-text">CHC30312</span>)</li>
+                                <li>Certificate III in Disability (<span class="bold-text">CHC30408</span>)</li>
+                            </ol>
+                            <p>This course is suited to those that are interested in gaining employment either within the Aged Care Residential sector or a Home and Community Care environment, with a focus on providing person-centred care to those who may require support due to ageing, disability or other circumstances.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-block padding">
+                            <h3>Certificate IV in Aged Support and Certificate IV in Leisure and Health</h3>
+                            <p>The Certificate IV in Ageing Support is the next step qualification for those working in (but not limited to) aged or community care that wish to further develop their responsibilities and are of expertise. This qualification will both grow your clinical skillset and introduce you to self-management and team leader processes.</p>
+                            <p>In combination, the Certificate IV in Leisure and Health qualification not only provides you with the qualification to work or assist in the lifestyle department, but also increases your skillset to be more in line with consumer driven care. This is a common pathway that can lead to a team leader position or coordination roles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">First name</span>
+                        <input type="text" ng-model="skill.formData.firstName">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Last name</span>
+                        <input type="text" ng-model="skill.formData.lastName">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Email Address <span class="required">*</span></span>
+                        <input type="text" ng-model="skill.formData.email">
+                    </label>
+                    <label class="item item-textarea">
+                        <span class="input-label">Message <span class="required">*</span></span>
+                        <textarea ng-model="skill.formData.message"></textarea>
+                    </label>
+                </div>
+                <div class="row responsive-sm">
+                    <div class="col-30">
+                        <button class="button button-positive button-block" ng-click="skill.sendMessage()">Send message</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </ion-content>
 </ion-view>

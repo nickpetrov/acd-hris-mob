@@ -12,6 +12,7 @@
         Moment
 
     ) {
+        /* jshint validthis: true */
         var vm = this;
         var modalInstance = null;
         var modalTemplates =  {

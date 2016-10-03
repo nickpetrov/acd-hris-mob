@@ -182,7 +182,7 @@
                     "app-content": {
                         templateUrl: "templates/upskilling/upskilling.template.html",
                         controller: "UpskillingCtrl",
-                        controllerAs: "upskilling"
+                        controllerAs: "skill"
                     }
                 }
             });
