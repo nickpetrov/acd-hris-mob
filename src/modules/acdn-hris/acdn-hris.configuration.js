@@ -160,6 +160,21 @@
                     }
                 }
             })
+            .state("app.insurance", {
+                url: "^/insurance",
+                cache: false,
+                params: {
+                    title: null,
+                    link: null
+                },
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/insurance/insurance.template.html",
+                        controller: "InsuranceCtrl",
+                        controllerAs: "insurance"
+                    }
+                }
+            })
             .state("app.upskilling", {
                 url: "^/upskilling",
                 cache: false,

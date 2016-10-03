@@ -4,7 +4,9 @@
         .module("acdn-hris.join")
         .controller("JoinCtrl", JoinCtrl);
 
-    function JoinCtrl($ionicHistory) {
+    function JoinCtrl(
+        $ionicHistory
+    ) {
         /* jshint validthis: true */
         var vm = this;
 

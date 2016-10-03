@@ -1,5 +1,7 @@
 $color-red: #e74c3c;
 $color-green: #2ecc71;
+$color-grey: #dddddd;
+$color-light-grey: #d3d3d3;
 
 //Common styles
 h2,
@@ -89,6 +91,10 @@ img {
 
 .text-error {
 	color: $color-red !important;
+}
+
+.text-justify {
+	text-align: justify;
 }
 
 //Ionic grid
@@ -253,6 +259,26 @@ img {
 	}
 }
 
+//Card-block styles
+
+.card-block {
+	border: 1px solid $color-grey;
+
+	a {
+		display: block;
+		height: 100%;
+		padding: 15px;
+		text-align: center;
+
+		.card-block-text {
+			display: inline-block;
+			margin-bottom: 15px;
+			text-decoration: underline;
+		}
+
+	}
+}
+
 //Custom styles for portfolio page
 .portfolio-page {
 	.button + .button {
@@ -285,7 +311,7 @@ img {
 		padding-left: 15px;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid $color-grey;
 
 		&:first-of-type {
 			padding-top: 0;
@@ -341,6 +367,35 @@ img {
 	.title-h3 {
 		margin-bottom: 30px;
 		text-align: center;
+	}
+}
+
+//Custom styles for rewards page
+
+.rewards-page {
+
+	.disabled {
+		background-color: $color-light-grey;
+
+		.card-block-text {
+			display: inline-block;
+			margin-bottom: 15px;
+			text-decoration: none;
+		}
+
+	}
+
+}
+
+//Custom style for insurance page
+
+.insurance-page {
+	.post-img {
+		max-width: 450px;
+	}
+
+	hr {
+
 	}
 }
 

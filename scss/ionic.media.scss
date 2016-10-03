@@ -48,3 +48,52 @@
   }
 
 }
+
+//Rewards Page
+@media only screen and (max-width : 767px) {
+  .rewards-page {
+
+    .row {
+      flex-wrap: wrap;
+
+      .col {
+        flex-basis: 50%;
+        max-width: 50%;
+        width: 50%;
+      }
+    }
+
+  }
+}
+
+@media only screen and (max-width : 567px) {
+  .rewards-page {
+
+    .row {
+      flex-wrap: wrap;
+
+      .col {
+        margin: 0 auto;
+        flex-basis: 60%;
+        max-width: 60%;
+        width: 60%;
+      }
+    }
+
+  }
+}
+@media only screen and (max-width : 380px) {
+  .rewards-page {
+
+    .row {
+      flex-wrap: wrap;
+
+      .col {
+        flex-basis: 100%;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+  }
+}
