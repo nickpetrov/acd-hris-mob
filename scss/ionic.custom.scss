@@ -252,8 +252,8 @@ img {
 		}
 	}
 }
-//Custom styles for portfolio page
 
+//Custom styles for portfolio page
 .portfolio-page {
 	.button + .button {
 		margin-left: 20px;
@@ -320,6 +320,7 @@ img {
 	}
 }
 
+//Custom styles for change-photo page
 .photo-page {
 	&-title {
 		margin-bottom: 20px;
@@ -332,5 +333,14 @@ img {
 	}
 }
 
+//Custom styles for surveys, pay and requests pages
 
+.surveys-page,
+.pay-page,
+.requests-page {
+	.title-h3 {
+		margin-bottom: 30px;
+		text-align: center;
+	}
+}
 

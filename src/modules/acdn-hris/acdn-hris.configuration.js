@@ -116,6 +116,39 @@
                     }
                 }
             })
+            .state("app.surveys", {
+                url: "^/surveys",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/surveys/surveys.template.html",
+                        controller: "SurveysCtrl",
+                        controllerAs: "survey"
+                    }
+                }
+            })
+            .state("app.pay", {
+                url: "^/pay",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/pay/pay.template.html",
+                        controller: "PayCtrl",
+                        controllerAs: "pay"
+                    }
+                }
+            })
+            .state("app.requests", {
+                url: "^/requests",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/requests/requests.template.html",
+                        controller: "RequestsCtrl",
+                        controllerAs: "request"
+                    }
+                }
+            })
             .state("app.rewards", {
                 url: "^/rewards",
                 cache: false,
