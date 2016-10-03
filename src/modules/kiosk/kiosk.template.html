@@ -1,5 +1,39 @@
 <ion-view view-title="Lonsdale Aged Care Employee Kiosk">
-    <ion-content padding="true" class="kiosk-page">
-        <h1>{{kiosk.test}}</h1>
+    <ion-content padding="true" class="kiosk-page ionic-grid">
+        <div class="row responsive-sm">
+            <div class="col-50">
+                <ion-item ui-sref="app.surveys">
+                    <div class="board">
+                        <h2 class="board-title">Staff Surveys and Feedback</h2>
+                        <div class="board-body">
+                            <div class="thumbnail ion-clipboard"></div>
+                            <div class="content">Complete surveys created by your employer, or enter your own anonymous feedback.</div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+            <div class="col-50">
+                <ion-item ui-sref="app.pay">
+                    <div class="board">
+                        <h2 class="board-title">My Pay</h2>
+                        <div class="board-body">
+                            <div class="thumbnail ion-card"></div>
+                            <div class="content">View pay stubs and pay history.</div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+            <div class="col-100">
+                <ion-item ui-sref="app.requests">
+                    <div class="board">
+                        <h2 class="board-title">My Leave Requests</h2>
+                        <div class="board-body">
+                            <div class="thumbnail ion-navigate"></div>
+                            <div class="content">Check, review, and create requests for leave. You can also view your accrued entitlements and past leave uses.</div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

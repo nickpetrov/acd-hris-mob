@@ -101,11 +101,22 @@ img {
 	[class^="col-"] {
 		margin-bottom: 15px;
 		display: flex;
+
+		.item {
+			width: 100%;
+		}
 	}
 
 	.item {
 		height: 100%;
 		margin-bottom: 15px;
+	}
+	.item-content {
+		height: 100%;
+	}
+	.col-100 {
+		flex-basis: 100%;
+
 	}
 }
 
