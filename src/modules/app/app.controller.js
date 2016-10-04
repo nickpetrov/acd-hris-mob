@@ -14,11 +14,10 @@
 
         vm.menuTitle = "Features";
         vm.showUserMenu = showUserMenu;
-
-        $scope.hideUserMenu = hideUserMenu;
-        $scope.showDashboard = showDashboard;
-        $scope.showMyDetails = showMyDetails;
-        $scope.logout = logout;
+        vm.hideUserMenu = hideUserMenu;
+        vm.showDashboard = showDashboard;
+        vm.showMyDetails = showMyDetails;
+        vm.logout = logout;
 
         //Creating instance of modal
         $ionicModal.fromTemplateUrl('templates/app/user-menu-modal.template.html', {
@@ -55,6 +54,8 @@
             userMenuModal.hide();
             $state.go("auth");
         }
+
+
     }
 
 })();
