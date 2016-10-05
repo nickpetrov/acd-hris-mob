@@ -9,9 +9,10 @@
         $ionicPlatform,
         $ionicPopup,
         $error,
-        $state
+        $state,
+        TokenService
     ) {
-
+        //Set default cordova's plugins settings
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -29,10 +30,13 @@
             }
         });
 
-        // $rootScope.$on('$stateChangeSuccess', function() {
-        //     $ionicLoading.hide();
-        // });
+        //Checking token
+        if(!TokenService.isToken()) {
+            TokenService.setToken("0fccc685-4e54-47a5-a0d9-7b1c005a9534");
+        };
 
+
+        //Handling state change errors
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             $error(error);
             $ionicPopup.alert({
