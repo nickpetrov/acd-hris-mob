@@ -1,3 +1,10 @@
 {
-  "directory": "src/lib"
+  "directory": "src/lib",
+  "ignoredDependencies": [
+    "lodash",
+    "angular",
+    "angular-animate",
+    "angular-sanitize",
+    "angular-ui-route"
+  ]
 }
