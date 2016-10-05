@@ -5,6 +5,7 @@
             "ionic",
             "ngCordova",
             "onezone-datepicker",
+            "ngStorage",
             "acdn-hris.auth",
             "acdn-hris.join",
             "acdn-hris.privacy",
