@@ -9,7 +9,8 @@
     ) {
         return {
             getToken: getToken,
-            setToken: setToken
+            setToken: setToken,
+            isToken: isToken
         };
 
         function getToken() {
@@ -18,6 +19,12 @@
 
         function setToken(token) {
             $localStorage.token = token;
+            return token;
+        }
+
+        function isToken() {
+            var token = getToken();
+            return token ? token : false;
         }
     }
 
