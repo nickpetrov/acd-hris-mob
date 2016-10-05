@@ -6,9 +6,10 @@
 
     function CordovaService(
         $ionicPlatform,
-        $cordovaEmailComposer,
         $error,
-        $ionicPopup
+        $ionicPopup,
+        $cordovaEmailComposer,
+        $cordovaInAppBrowser
     ) {
         var sm = this;
 
@@ -38,6 +39,30 @@
             });
 
         };
+
+        sm.openInAppBrowser = function(label) {
+            var inAppOptions = {
+                location: 'yes',
+                clearcache: 'yes',
+                toolbar: 'no'
+            };
+
+            var links = {
+                job: "https://jobs.agedcaredn.com.au/",
+                courses: "https://qintillmstest.azurewebsites.net/Learner/Dashboard"
+            };
+
+            $ionicPlatform.ready(function () {
+                $cordovaInAppBrowser.open(links[label], '_blank', inAppOptions)
+                    .then(function(event) {
+                        // console.log("success");
+                    })
+                    .catch(function(event) {
+                        // console.log("fatality");
+                    });
+            });
+        };
+
     }
 
 })();

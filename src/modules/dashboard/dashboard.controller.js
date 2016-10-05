@@ -5,11 +5,17 @@
         .controller("DashboardCtrl", DashboardCtrl);
 
     function DashboardCtrl(
-        UserService
+        UserService,
+        CordovaService
     ) {
         var vm = this;
 
+        vm.openInBrowse = openInBrowse;
         vm.userInfo = UserService.userInfo;
+
+        function openInBrowse(label) {
+            CordovaService.openInAppBrowser(label);
+        }
     }
 
 })();

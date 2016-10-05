@@ -7,7 +7,8 @@
     function AppCtrl(
         $ionicModal,
         $scope,
-        $state
+        $state,
+        CordovaService
     ) {
         var vm = this;
         var userMenuModal = null;
@@ -18,6 +19,7 @@
         vm.showDashboard = showDashboard;
         vm.showMyDetails = showMyDetails;
         vm.logout = logout;
+        vm.openInBrowse = openInBrowse;
 
         //Creating instance of modal
         $ionicModal.fromTemplateUrl('templates/app/user-menu-modal.template.html', {
@@ -55,7 +57,9 @@
             $state.go("auth");
         }
 
-
+        function openInBrowse(label) {
+            CordovaService.openInAppBrowser(label);
+        }
     }
 
 })();

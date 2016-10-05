@@ -2,13 +2,13 @@
     <ion-item ui-sref="app.portfolio" menu-close>
         My ePortfolio
     </ion-item>
-    <ion-item menu-close >
+    <ion-item menu-close ng-click="app.openInBrowse('job')">
         Job Board
     </ion-item>
     <ion-item ui-sref="app.kiosk" menu-close>
         Employee Kiosk
     </ion-item>
-    <ion-item menu-close>
+    <ion-item menu-close ng-click="app.openInBrowse('courses')">
         CPD
     </ion-item>
     <ion-item ui-sref="app.rewards" menu-close>
