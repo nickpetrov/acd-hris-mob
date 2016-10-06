@@ -38,6 +38,7 @@ var fonts = [
 
 var js = [
     path.src + "lib/ionic/js/ionic.bundle.js",
+    path.src + "lib/lodash/lodash.js",
     path.src + "lib/ngstorage/ngStorage.js",
     path.src + "lib/restangular/dist/restangular.js",
     path.src + "lib/ngCordova/dist/ng-cordova.js",
