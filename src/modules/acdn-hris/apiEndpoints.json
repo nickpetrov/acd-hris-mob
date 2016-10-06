@@ -1,11 +1,8 @@
 {
   "development":{
-    "apiRoot": "http://acdn-hr-staging.azurewebsites.net"
+    "apiRoot": "https://sh.agedcaredn.com.au"
   },
   "production":{
-    "apiRoot": "https://api.carehr.co"
-  },
-  "local":{
-    "apiRoot": "http://localhost:5000"
+    "apiRoot": "https://sh.agedcaredn.com.au"
   }
 }

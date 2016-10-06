@@ -146,8 +146,8 @@ gulp.task("fonts", fontsTask);
  * @param {"development"|"production"|"local"} environment
  */
 var createConfig = function(environment){
-    return gulp.src(path.src + "modules/acdnHris/apiEndpoints.json")
-        .pipe(ngConfig("acdnHris", {
+    return gulp.src(path.src + "modules/acdn-hris/apiEndpoints.json")
+        .pipe(ngConfig("acdn-hris", {
             createModule: false,
             environment: environment,
             wrap: true
@@ -167,18 +167,6 @@ var jsDevTask = function() {
 };
 
 gulp.task("js-dev", jsDevTask);
-
-var jsLocalTask = function() {
-    return gulp.src(js)
-        .pipe(sourcemaps.init()).on("error", handleErrors)
-        .pipe(addStream.obj(createConfig("local"))).on("error", handleErrors)
-        .pipe(ngAnnotate()).on("error", handleErrors)
-        .pipe(concat("scripts.js")).on("error", handleErrors)
-        .pipe(sourcemaps.write(".")).on("error", handleErrors)
-        .pipe(gulp.dest(path.www + "/js"));
-};
-
-gulp.task("js-local", jsLocalTask);
 
 var jsBuildTask = function() {
     return gulp.src(js)
@@ -209,6 +197,5 @@ var watchProject = function() {
 };
 
 
-gulp.task("local", ["images", "favicon", "manifest", "index", "css-dev", "fonts", "js-local", "templates"], watchProject); //idk
 gulp.task("dev", ["images", "favicon", "manifest", "index", "css-dev", "fonts", "js-dev", "templates"], watchProject); // use for developing
 gulp.task("build", ["images", "favicon", "manifest", "index", "css-build", "fonts", "js-build", "templates"]); // use for production build
