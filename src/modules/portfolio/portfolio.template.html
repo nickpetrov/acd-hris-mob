@@ -2,7 +2,7 @@
     <ion-content class="portfolio-page" scroll="true">
         <ion-item class="item item-thumbnail-left">
             <img src="img/avatar.jpeg">
-            <h3><span ng-bind="portfolio.userInfo.userName ? portfolio.userInfo.userName : 'John'"></span> Bloggs</h3>
+            <h3><span ng-bind="'John'"></span> Bloggs</h3>
             <h4><span class="bold-text">Preferred name: </span>Spirit</h4>
             <h4><span class="bold-text">DOB: </span>Example</h4>
             <h4><span class="bold-text">Email: </span>sandbox@agedcaredn.com.au</h4>
@@ -13,28 +13,27 @@
         <ion-item>
             <div class="section-title-block">
                 <h3 class="section-title">Education</h3>
-                <span class="section-title-icon ion-plus-circled"
-                      ng-click="portfolio.showModal('education')"></span>
+                <span class="section-title-icon ion-plus-circled"></span>
             </div>
-            <div class="sub-item" ng-repeat="i in portfolio.itemsEducation track by $index">
-                <span class="sub-title bold-text" ng-bind="i.org"></span>
-                <span class="sub-title bold-text" ng-bind="i.course">Chishoim Institute</span>
-                <span class="sub-title"><span ng-bind="i.dateFrom"></span> - <span ng-bind="i.dateTo"></span></span>
+            <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.education track by $index">
+                <span class="sub-title bold-text" ng-bind="i.CourseName"></span>
+                <span class="sub-title bold-text" ng-bind="i.TrainingOrganisation"></span>
+                <span class="sub-title"><span ng-bind="i.StartMonth"></span>&nbsp;<span ng-bind="i.StartYear"></span> - <span ng-bind="i.EndMonth"></span>&nbsp;<span ng-bind="i.EndYear"></span></span>
                 <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit"
-                        ng-click="portfolio.editPortfolioItem('education', $index)"></button>
+                <button class="button button-positive button-small button-edit icon ion-edit"></button>
             </div>
         </ion-item>
         <ion-item>
             <div class="section-title-block">
                 <h3 class="section-title">Employment Experience</h3>
-                <span class="section-title-icon ion-plus-circled"
-                      ng-click="portfolio.showModal('experience')"></span>
+                <span class="section-title-icon ion-plus-circled"></span>
             </div>
-            <div class="sub-item">
-                <span class="sub-title bold-text">PCA</span>
-                <span class="sub-title bold-text">Lonsdale Aged Care</span>
-                <span class="sub-title">September 2002 - Present</span>
+            <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.employment track by $index">
+                <span class="sub-title bold-text" ng-bind="i.JobTitle"></span>
+                <span class="sub-title bold-text" ng-bind="i.Employer"></span>
+                <span class="sub-title">
+                    <span ng-bind="i.StartMonth"></span>&nbsp;<span ng-bind="i.StartYear"></span> - <span ng-bind="i.EndMonth"></span>&nbsp;<span ng-bind="i.EndYear"></span>
+                </span>
                 <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
                 <button class="button button-positive button-small button-edit icon ion-edit"></button>
             </div>

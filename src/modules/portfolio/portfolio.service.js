@@ -4,34 +4,22 @@
         .module("acdn-hris.app")
         .factory("PortfolioService", PortfolioService);
 
-    function PortfolioService() {
+    function PortfolioService(
+        Restangular,
+        TokenService
+    ) {
         var portfolioInfo = {
-            education: [
-                {
-                    org: "Certificate IV in Aged Care",
-                    course: "Chishoim Institute",
-                    dateFrom: "November 2001",
-                    dateTo: "September 2002"
-                },
-                {
-                    org: "Certificate III in Aged Care",
-                    course: "Education Institute",
-                    dateFrom: "February 1996",
-                    dateTo: "August 1996"
-                }
-            ],
-            experience: []
+            education: [],
+            employment: []
         };
 
-        var service = {
+        return {
             addNewItem: addNewItem,
             getItemByIndex: getItemByIndex,
             getAllEducations: getAllEducations,
-            getAllExperiences: getAllExperiences
+            getAllExperiences: getAllExperiences,
+            updatePortfolioInfo: updatePortfolioInfo
         };
-
-        return service;
-
 
         function addNewItem(label, data) {
             portfolioInfo[label].push(data);
@@ -50,7 +38,20 @@
         }
 
         function getPortfolioInfo() {
+            return Restangular.one("/api/member/eportfolio/", TokenService.getToken())
+                .get()
+                .then(function(result) {
+                    return result.plain();
+                });
+        }
 
+        function updatePortfolioInfo() {
+            return getPortfolioInfo()
+                .then(function(newPortfolioInfo) {
+                    portfolioInfo.education = newPortfolioInfo.Education;
+                    portfolioInfo.employment = newPortfolioInfo.Employment;
+                    return portfolioInfo;
+                });
         }
 
     }

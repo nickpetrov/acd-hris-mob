@@ -5,15 +5,21 @@
         .config(acdnHrisConfig)
         .config(acdnHrisStateConfig);
 
-    function acdnHrisConfig($ionicConfigProvider) {
+    function acdnHrisConfig(
+        $ionicConfigProvider,
+        RestangularProvider,
+        apiRoot
+    ) {
 
         //Disable backButton text and enable only "left-arrow" icon
         $ionicConfigProvider.backButton.previousTitleText(false);
         $ionicConfigProvider.backButton.text('').icon('ion-chevron-left');
 
-        //Align of titles
+        //Ionic align of titles
         $ionicConfigProvider.navBar.alignTitle('center');
 
+        //Setting restangular provider
+        RestangularProvider.setBaseUrl(apiRoot);
     }
 
     function acdnHrisStateConfig($stateProvider, $urlRouterProvider) {
@@ -80,6 +86,11 @@
                         templateUrl: "templates/portfolio/portfolio.template.html",
                         controller: "PortfolioCtrl",
                         controllerAs: "portfolio"
+                    }
+                },
+                resolve: {
+                    PortfolioInfo : function(PortfolioService) {
+                        return PortfolioService.updatePortfolioInfo();
                     }
                 }
             })
