@@ -39,6 +39,7 @@ var fonts = [
 var js = [
     path.src + "lib/ionic/js/ionic.bundle.js",
     path.src + "lib/ngstorage/ngStorage.js",
+    path.src + "lib/restangular/dist/restangular.js",
     path.src + "lib/ngCordova/dist/ng-cordova.js",
     path.src + "lib/moment/moment.js",
     path.src + "lib/onezone-datepicker/dist/onezone-datepicker.min.js",
