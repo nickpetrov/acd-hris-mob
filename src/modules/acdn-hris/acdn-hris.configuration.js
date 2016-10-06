@@ -87,10 +87,27 @@
                         controller: "PortfolioCtrl",
                         controllerAs: "portfolio"
                     }
-                },
-                resolve: {
-                    PortfolioInfo : function(PortfolioService) {
-                        return PortfolioService.updatePortfolioInfo();
+                }
+            })
+            .state("app.edit-education", {
+                url: "^/edit-education",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/portfolio/edit/edit-education.template.html",
+                        controller: "EditEducationCtrl",
+                        controllerAs: "educ"
+                    }
+                }
+            })
+            .state("app.edit-employment", {
+                url: "^/edit-employment",
+                cache: false,
+                views: {
+                    "app-content": {
+                        templateUrl: "templates/portfolio/edit/edit-employment.template.html",
+                        controller: "EditEmploymentCtrl",
+                        controllerAs: "empl"
                     }
                 }
             })

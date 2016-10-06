@@ -13,7 +13,7 @@
         <ion-item>
             <div class="section-title-block">
                 <h3 class="section-title">Education</h3>
-                <span class="section-title-icon ion-plus-circled"></span>
+                <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-education"></span>
             </div>
             <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.education track by $index">
                 <span class="sub-title bold-text" ng-bind="i.CourseName"></span>
@@ -26,7 +26,7 @@
         <ion-item>
             <div class="section-title-block">
                 <h3 class="section-title">Employment Experience</h3>
-                <span class="section-title-icon ion-plus-circled"></span>
+                <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-employment"></span>
             </div>
             <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.employment track by $index">
                 <span class="sub-title bold-text" ng-bind="i.JobTitle"></span>

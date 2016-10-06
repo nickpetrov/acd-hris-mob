@@ -5,13 +5,32 @@
         .controller("PortfolioCtrl", PortfolioCtrl);
 
     function PortfolioCtrl(
-        PortfolioInfo
+        PortfolioService,
+        $error
     ) {
         /* jshint validthis: true */
         var vm = this;
 
-        vm.portfolioInfo = PortfolioInfo;
-        console.log(vm.portfolioInfo);
+        vm.portfolioInfo = {};
+        vm.initPortfolio = initPortfolio;
+
+        initPortfolio();
+
+        function initPortfolio() {
+            PortfolioService.getPortfolioInfo()
+                .then(function(portfolioInfo) {
+                    vm.portfolioInfo = portfolioInfo;
+                })
+                .then(PortfolioService.updatePortfolioInfo)
+                .then(function(portfolioInfo) {
+                    vm.portfolioInfo = portfolioInfo;
+                })
+                .catch(function(err) {
+                    $error(err);
+                });
+        }
+
+
     }
 
 })();

@@ -5,10 +5,11 @@
         .factory("PortfolioService", PortfolioService);
 
     function PortfolioService(
+        $q,
         Restangular,
         TokenService
     ) {
-        var portfolioInfo = {
+        var _portfolioInfo = {
             education: [],
             employment: []
         };
@@ -16,29 +17,24 @@
         return {
             addNewItem: addNewItem,
             getItemByIndex: getItemByIndex,
-            getAllEducations: getAllEducations,
-            getAllExperiences: getAllExperiences,
+            getPortfolioInfo: getPortfolioInfo,
             updatePortfolioInfo: updatePortfolioInfo
         };
 
         function addNewItem(label, data) {
-            portfolioInfo[label].push(data);
+            _portfolioInfo[label].push(data);
         }
 
         function getItemByIndex(label, index) {
-            return portfolioInfo[label][index];
-        }
-
-        function getAllEducations() {
-            return portfolioInfo.education;
-        }
-
-        function getAllExperiences() {
-            return portfolioInfo.experience;
+            return _portfolioInfo[label][index];
         }
 
         function getPortfolioInfo() {
-            return Restangular.one("/api/member/eportfolio/", TokenService.getToken())
+            return $q.resolve(_portfolioInfo);
+        }
+
+        function pullPortfolioInfo() {
+            return Restangular.one("/api/member/eportfolio12/", TokenService.getToken())
                 .get()
                 .then(function(result) {
                     return result.plain();
@@ -46,11 +42,11 @@
         }
 
         function updatePortfolioInfo() {
-            return getPortfolioInfo()
+            return pullPortfolioInfo()
                 .then(function(newPortfolioInfo) {
-                    portfolioInfo.education = newPortfolioInfo.Education;
-                    portfolioInfo.employment = newPortfolioInfo.Employment;
-                    return portfolioInfo;
+                    _portfolioInfo.education = newPortfolioInfo.Education;
+                    _portfolioInfo.employment = newPortfolioInfo.Employment;
+                    return _portfolioInfo;
                 });
         }
 
