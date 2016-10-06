@@ -6,6 +6,7 @@
     "ngCordova": "^0.1.27-alpha",
     "moment": "^2.15.1",
     "restangular": "^1.5.2",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "lodash": "^4.16.4"
   }
 }

@@ -1,7 +1,6 @@
 {
   "directory": "src/lib",
   "ignoredDependencies": [
-    "lodash",
     "angular",
     "angular-animate",
     "angular-sanitize",
