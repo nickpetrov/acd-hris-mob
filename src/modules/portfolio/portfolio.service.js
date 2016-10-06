@@ -2,13 +2,10 @@
 
     angular
         .module("acdn-hris.app")
-        .service("PortfolioService", PortfolioService);
+        .factory("PortfolioService", PortfolioService);
 
     function PortfolioService() {
-        /* jshint validthis: true */
-        var sm = this;
-
-        sm.portfolioInfo = {
+        var portfolioInfo = {
             education: [
                 {
                     org: "Certificate IV in Aged Care",
@@ -26,26 +23,36 @@
             experience: []
         };
 
-        sm.addNewItem = addNewItem;
-        sm.getItemByIndex = getItemByIndex;
-        sm.getAllEducations = getAllEducations;
-        sm.getAllExperiences = getAllExperiences;
+        var service = {
+            addNewItem: addNewItem,
+            getItemByIndex: getItemByIndex,
+            getAllEducations: getAllEducations,
+            getAllExperiences: getAllExperiences
+        };
+
+        return service;
+
 
         function addNewItem(label, data) {
-            sm.portfolioInfo[label].push(data);
+            portfolioInfo[label].push(data);
         }
 
         function getItemByIndex(label, index) {
-            return sm.portfolioInfo[label][index];
+            return portfolioInfo[label][index];
         }
-        
+
         function getAllEducations() {
-            return sm.portfolioInfo.education;
+            return portfolioInfo.education;
         }
 
         function getAllExperiences() {
-            return sm.portfolioInfo.experience;
+            return portfolioInfo.experience;
         }
+
+        function getPortfolioInfo() {
+
+        }
+
     }
 
 })();
