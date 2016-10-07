@@ -2,7 +2,7 @@
 
     angular
         .module("acdn-hris")
-        .service("CordovaService", CordovaService);
+        .factory("CordovaService", CordovaService);
 
     function CordovaService(
         $ionicPlatform,
@@ -11,10 +11,15 @@
         $cordovaEmailComposer,
         $cordovaInAppBrowser
     ) {
-        var sm = this;
+
+        return {
+            sendEmail: sendEmail,
+            penInAppBrowser: penInAppBrowser
+        };
 
         //Function fot sending email
-        sm.sendEmail = function() {
+        function sendEmail() {
+
             var mailTemplate = {
                 to: 'info@agedcaredn.com.au'
             };
@@ -38,9 +43,10 @@
                 });
             });
 
-        };
 
-        sm.openInAppBrowser = function(label) {
+        }
+
+        function penInAppBrowser(label) {
             var inAppOptions = {
                 location: 'yes',
                 clearcache: 'yes',
@@ -61,7 +67,7 @@
                         // console.log("fatality");
                     });
             });
-        };
+        }
 
     }
 
