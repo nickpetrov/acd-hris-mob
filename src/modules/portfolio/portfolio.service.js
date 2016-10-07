@@ -34,7 +34,7 @@
         }
 
         function pullPortfolioInfo() {
-            return Restangular.one("/api/member/eportfolio12/", TokenService.getToken())
+            return Restangular.one("/api/member/eportfolio/", TokenService.getToken())
                 .get()
                 .then(function(result) {
                     return result.plain();

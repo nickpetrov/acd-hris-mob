@@ -10,6 +10,12 @@
             <button class="button button-positive button-small" ui-sref="app.changePhoto">Change photo</button>
             <button class="button button-positive button-small" ui-sref="app.userDetails">Edit details</button>
         </ion-item>
+        <ion-item ng-if="portfolio.loadingBar">
+            <div class="loading-bar">
+                <img class="loading-bar-img" src="img/spinner.gif" alt="spinner">
+                <span class="loading-bar-text">Data is on updating. Please wait ...</span>
+            </div>
+        </ion-item>
         <ion-item>
             <div class="section-title-block">
                 <h3 class="section-title">Education</h3>
