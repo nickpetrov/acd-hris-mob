@@ -9,15 +9,17 @@
         $error,
         $ionicPopup,
         $cordovaEmailComposer,
-        $cordovaInAppBrowser
+        $cordovaInAppBrowser,
+        $cordovaDatePicker
     ) {
 
         return {
             sendEmail: sendEmail,
-            penInAppBrowser: penInAppBrowser
+            openInAppBrowser: openInAppBrowser,
+            initDatePicker: initDatePicker
         };
 
-        //Function fot sending email
+        //Sending email
         function sendEmail() {
 
             var mailTemplate = {
@@ -46,7 +48,8 @@
 
         }
 
-        function penInAppBrowser(label) {
+        //Opening inAppBrowser
+        function openInAppBrowser(label) {
             var inAppOptions = {
                 location: 'yes',
                 clearcache: 'yes',
@@ -67,6 +70,31 @@
                         // console.log("fatality");
                     });
             });
+        }
+
+        //Opening DatePicker
+        function initDatePicker() {
+
+            var datePickerOptions = {
+                date: new Date(),
+                mode: 'date', // or 'time'
+                // minDate: new Date() - 10000,
+                allowOldDates: true,
+                allowFutureDates: false,
+                doneButtonLabel: 'DONE',
+                doneButtonColor: '#F2F3F4',
+                cancelButtonLabel: 'CANCEL',
+                cancelButtonColor: '#000000'
+            };
+
+            $ionicPlatform.ready(function () {
+
+                $cordovaDatePicker.show(datePickerOptions).then(function(date){
+                    console.log(date);
+                });
+
+            });
+
         }
 
     }

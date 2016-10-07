@@ -423,6 +423,22 @@ img {
 	}
 }
 
+//Custome styles for edit-education page
+.date-select {
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid $color-grey;
+	padding: 6px 12px;
+	color: #444;
+}
+
+.date-label {
+	display: block;
+	font-size: 16px;
+	text-align: left;
+	font-style: italic;
+}
+
 //Custom styles for change-photo page
 .photo-page {
 	&-title {
