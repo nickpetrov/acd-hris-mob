@@ -16,10 +16,12 @@
                 <span class="loading-bar-text">Data is on updating. Please wait ...</span>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item ng-if="!portfolio.loadingBar">
             <div class="section-title-block">
                 <h3 class="section-title">Education</h3>
                 <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-education"></span>
+                <span style="color: green" ng-if="portfolio.educationResult == 'success'">Course has been added</span>
+                <span style="color: red" ng-if="portfolio.educationResult == 'failed'">Course hasn't been added</span>
             </div>
             <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.education track by $index">
                 <span class="sub-title bold-text" ng-bind="i.CourseName"></span>
@@ -29,7 +31,7 @@
                 <button class="button button-positive button-small button-edit icon ion-edit"></button>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item ng-if="!portfolio.loadingBar">
             <div class="section-title-block">
                 <h3 class="section-title">Employment Experience</h3>
                 <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-employment"></span>

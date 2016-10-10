@@ -81,6 +81,9 @@
             .state("app.portfolio", {
                 url: "^/portfolio",
                 cache: false,
+                params: {
+                  educ: null
+                },
                 views: {
                     "app-content": {
                         templateUrl: "templates/portfolio/portfolio.template.html",

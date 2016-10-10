@@ -28,51 +28,58 @@
                     <div class="row responsive-sm">
                         <div class="col-50">
                             <label class="date-label">From date: </label>
-                            <select class="date-select" ng-model="educ.currentItem.monthFrom">
-                                <option ng-repeat="i in educ.selectData.month track by $index"
-                                        ng-value="{{i}}"
-                                        ng-bind="i"
-                                        ng-selected="i == educ.currentItem.monthFrom"
-                                ></option>
+                            <select class="date-select"
+                                    name="monthFrom"
+                                    ng-model="educ.currentItem.monthFrom"
+                                    ng-options="month for month in educ.selectData.month track by month"
+                                    ng-required="true"
+                            >
                             </select>
-                            <select class="date-select" ng-model="educ.currentItem.yearFrom">
-                                <option ng-repeat="i in educ.selectData.yearsFrom track by $index"
-                                        ng-value="{{i}}"
-                                        ng-bind="i"
-                                        ng-selected="+i == educ.currentItem.yearsFrom"
-                                ></option>
+                            <select class="date-select"
+                                    name="yearFrom"
+                                    ng-model="educ.currentItem.yearFrom"
+                                    ng-options="year for year in educ.selectData.yearsFrom track by year"
+                                    ng-required="true"
+                            >
                             </select>
                         </div>
                         <div class="col-50">
                             <label class="date-label">To date: </label>
-                            <select class="date-select" ng-model="educ.currentItem.monthTo">
-                                <option ng-repeat="i in educ.selectData.month track by $index"
-                                        ng-value="{{i}}"
-                                        ng-bind="i"
-                                        ng-selected="i == educ.currentItem.monthTo"></option>
-                                ></option>
+                            <select class="date-select"
+                                    name="monthTo"
+                                    ng-model="educ.currentItem.monthTo"
+                                    ng-options="month for month in educ.selectData.month track by month"
+                                    ng-if="educ.currentItem.yearTo != 'Present'"
+                                    ng-required="educ.currentItem.yearTo != 'Present'"
+                            >
                             </select>
-                            <select class="date-select" ng-model="educ.currentItem.yearTo">
-                                <option value="0">1991</option>
-                                <option value="1">1992</option>
-                                <option value="2">1993</option>
-                                <option value="3">1994</option>
+                            <select class="date-select"
+                                    name="yearTo"
+                                    ng-model="educ.currentItem.yearTo"
+                                    ng-options="year for year in educ.selectData.yearsTo track by year"
+                                    ng-required="true"
+                            >
                             </select>
                         </div>
                     </div>
                 </ion-item>
             </ion-list>
-            <!--<div class="padding">-->
-                <!--<div class="alert-block alert-error" ng-if="portfolio.alertForm">-->
-                    <!--<span>Please fill all required fields with correct data</span>-->
-                <!--</div>-->
-            <!--</div>-->
+            <div class="padding" ng-if="educ.showAlert && (!educ.educationForm.org.$valid ||
+                                                           !educ.educationForm.course.$valid ||
+                                                           !educ.educationForm.monthFrom.$valid ||
+                                                           !educ.educationForm.yearFrom.$valid ||
+                                                            educ.educationForm.monthTo.$error.required ||
+                                                           !educ.educationForm.yearTo.$valid)">
+                <div class="alert-block alert-error">
+                    <span>Please fill in the years you attended the course</span>
+                </div>
+            </div>
             <div class="row responsive-sm">
                 <div class="col-50 padding-lr-10">
                     <button class="button button-positive button-block" ng-click="educ.onSave()">Save</button>
                 </div>
                 <div class="col-50 padding-lr-10">
-                    <button class="button button-assertive button-block">Cancel</button>
+                    <button class="button button-assertive button-block" ng-click="educ.onCancel()">Cancel</button>
                 </div>
             </div>
         </form>

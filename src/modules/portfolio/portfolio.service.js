@@ -18,7 +18,8 @@
             addNewItem: addNewItem,
             getItemByIndex: getItemByIndex,
             getPortfolioInfo: getPortfolioInfo,
-            updatePortfolioInfo: updatePortfolioInfo
+            updatePortfolioInfo: updatePortfolioInfo,
+            sendPortfolioInfo: sendPortfolioInfo
         };
 
         function addNewItem(label, data) {
@@ -48,6 +49,10 @@
                     _portfolioInfo.employment = newPortfolioInfo.Employment;
                     return _portfolioInfo;
                 });
+        }
+
+        function sendPortfolioInfo(data) {
+            return Restangular.all("/api/member/eportfolio/" + TokenService.getToken()).post(data)
         }
 
     }

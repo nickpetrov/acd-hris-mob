@@ -11,7 +11,7 @@
 
         return {
             createYearsArray: createYearsArray,
-            getMonth: getMonth
+            getMonths: getMonths
         };
 
         function createYearsArray(firstValue, secondValue) {
@@ -35,11 +35,10 @@
                 }
                 arr.push(firstValue--);
             }
-            console.log(arr);
             return arr;
         }
 
-        function getMonth() {
+        function getMonths() {
             return month.slice();
         }
     }

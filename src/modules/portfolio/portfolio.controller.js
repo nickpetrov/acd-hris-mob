@@ -5,6 +5,8 @@
         .controller("PortfolioCtrl", PortfolioCtrl);
 
     function PortfolioCtrl(
+        $stateParams,
+        $timeout,
         PortfolioService,
         $error
     ) {
@@ -13,11 +15,25 @@
 
         vm.portfolioInfo = {};
         vm.loadingBar = false;
+        vm.educationResult = "";
         vm.initPortfolio = initPortfolio;
 
         initPortfolio();
 
         function initPortfolio() {
+
+            if($stateParams.educ == true) {
+                vm.educationResult = "success";
+            } else if($stateParams.educ == false) {
+                vm.educationResult = "failed";
+            } else {
+                vm.educationResult = '';
+            }
+            
+            $timeout(function() {
+                vm.educationResult = '';
+            }, 3000);
+
             PortfolioService.getPortfolioInfo()
                 .then(function(portfolioInfo) {
                     vm.portfolioInfo = portfolioInfo;
@@ -32,7 +48,6 @@
                     $error(err);
                 });
         }
-
 
     }
 
