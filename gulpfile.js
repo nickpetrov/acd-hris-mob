@@ -8,6 +8,7 @@ var ngConfig = require('gulp-ng-config');
 var addStream = require("add-stream");
 var ngAnnotate = require("gulp-ng-annotate");
 var uglify = require("gulp-uglify");
+var plumber = require("gulp-plumber");
 
 var path = {
   src: "src/",
@@ -65,6 +66,12 @@ function handleErrors() {
         console.log("Plugin: " + arguments[i].plugin + "\n" + "Message: " + arguments[i].message)
     }
 }
+
+//Convenience wrapper to adopt plumber
+gulp.plumbedSrc = function( ){
+    return gulp.src.apply( gulp, arguments )
+        .pipe( plumber() );
+};
 
 
 //Task for deleting "www" folder
@@ -160,11 +167,16 @@ var createConfig = function(environment){
 //Tasks for creating common js file
 var jsDevTask = function() {
     return gulp.src(js)
+        .pipe(plumber())
         .pipe(sourcemaps.init()).on("error", handleErrors)
-        .pipe(addStream.obj(createConfig("development"))).on("error", handleErrors)
-        .pipe(ngAnnotate()).on("error", handleErrors)
-        .pipe(concat("scripts.js")).on("error", handleErrors)
-        .pipe(sourcemaps.write(".")).on("error", handleErrors)
+        .pipe(addStream.obj(createConfig("development")))
+        .on("error", handleErrors)
+        .pipe(ngAnnotate())
+        .on("error", handleErrors)
+        .pipe(concat("scripts.js"))
+        .on("error", handleErrors)
+        .pipe(sourcemaps.write("."))
+        .on("error", handleErrors)
         .pipe(gulp.dest(path.www + "/js"))
 };
 
@@ -172,10 +184,14 @@ gulp.task("js-dev", jsDevTask);
 
 var jsBuildTask = function() {
     return gulp.src(js)
-        .pipe(addStream.obj(createConfig("production"))).on("error", handleErrors)
-        .pipe(ngAnnotate()).on("error", handleErrors)
-        .pipe(concat("scripts.js")).on("error", handleErrors)
-        .pipe(uglify()).on("error", handleErrors)
+        .pipe(addStream.obj(createConfig("production")))
+        .on("error", handleErrors)
+        .pipe(ngAnnotate())
+        .on("error", handleErrors)
+        .pipe(concat("scripts.js"))
+        .on("error", handleErrors)
+        .pipe(uglify())
+        .on("error", handleErrors)
         .pipe(gulp.dest(path.www + "/js"));
 };
 
