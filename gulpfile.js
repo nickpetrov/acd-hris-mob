@@ -68,9 +68,9 @@ function handleErrors() {
 }
 
 //Convenience wrapper to adopt plumber
-gulp.plumbedSrc = function( ){
-    return gulp.src.apply( gulp, arguments )
-        .pipe( plumber() );
+gulp.plumbedSrc = function(){
+    return gulp.src.call(gulp, arguments[0])
+        .pipe(plumber());
 };
 
 
@@ -120,7 +120,7 @@ gulp.task("index", indexTask);
 
 //Task for converting sass to css and gather it together
 var cssDevTask = function() {
-    return gulp.src(scss)
+    gulp.plumbedSrc(scss)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({ browsers: ['last 2 versions'] })).on("error", handleErrors)
@@ -132,7 +132,7 @@ var cssDevTask = function() {
 gulp.task("css-dev", cssDevTask);
 
 var cssBuildTask = function() {
-    return gulp.src(scss)
+    gulp.plumbedSrc(scss)
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer({ browsers: ['last 2 versions'] })).on("error", handleErrors)
         .pipe(concat("styles.css")).on("error", handleErrors)
@@ -165,9 +165,23 @@ var createConfig = function(environment){
 
 
 //Tasks for creating common js file
+// var jsDevTask = function() {
+//     return gulp.src(js)
+//         .pipe(plumber())
+//         .pipe(sourcemaps.init()).on("error", handleErrors)
+//         .pipe(addStream.obj(createConfig("development")))
+//         .on("error", handleErrors)
+//         .pipe(ngAnnotate())
+//         .on("error", handleErrors)
+//         .pipe(concat("scripts.js"))
+//         .on("error", handleErrors)
+//         .pipe(sourcemaps.write("."))
+//         .on("error", handleErrors)
+//         .pipe(gulp.dest(path.www + "/js"))
+// };
+
 var jsDevTask = function() {
-    return gulp.src(js)
-        .pipe(plumber())
+    gulp.plumbedSrc(js)
         .pipe(sourcemaps.init()).on("error", handleErrors)
         .pipe(addStream.obj(createConfig("development")))
         .on("error", handleErrors)
@@ -183,7 +197,7 @@ var jsDevTask = function() {
 gulp.task("js-dev", jsDevTask);
 
 var jsBuildTask = function() {
-    return gulp.src(js)
+    gulp.plumbedSrc(js)
         .pipe(addStream.obj(createConfig("production")))
         .on("error", handleErrors)
         .pipe(ngAnnotate())
