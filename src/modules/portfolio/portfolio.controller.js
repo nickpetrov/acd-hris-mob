@@ -29,7 +29,7 @@
             } else {
                 vm.educationResult = '';
             }
-            
+
             $timeout(function() {
                 vm.educationResult = '';
             }, 3000);
