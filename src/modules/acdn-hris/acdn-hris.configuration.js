@@ -81,9 +81,6 @@
             .state("app.portfolio", {
                 url: "^/portfolio",
                 cache: false,
-                params: {
-                  educ: null
-                },
                 views: {
                     "app-content": {
                         templateUrl: "templates/portfolio/portfolio.template.html",
@@ -95,6 +92,9 @@
             .state("app.edit-education", {
                 url: "^/edit-education",
                 cache: false,
+                params: {
+                  id: null
+                },
                 views: {
                     "app-content": {
                         templateUrl: "templates/portfolio/edit/edit-education.template.html",
@@ -106,6 +106,9 @@
             .state("app.edit-employment", {
                 url: "^/edit-employment",
                 cache: false,
+                params: {
+                    id: null
+                },
                 views: {
                     "app-content": {
                         templateUrl: "templates/portfolio/edit/edit-employment.template.html",

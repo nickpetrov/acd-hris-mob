@@ -15,24 +15,23 @@
         };
 
         return {
-            addNewItem: addNewItem,
-            getItemByIndex: getItemByIndex,
             getPortfolioInfo: getPortfolioInfo,
+            getPortfolioInfoById: getPortfolioInfoById,
             updatePortfolioInfo: updatePortfolioInfo,
             sendPortfolioInfo: sendPortfolioInfo,
             deletePortfolioInfo: deletePortfolioInfo
         };
 
-        function addNewItem(label, data) {
-            _portfolioInfo[label].push(data);
-        }
-
-        function getItemByIndex(label, index) {
-            return _portfolioInfo[label][index];
-        }
-
         function getPortfolioInfo() {
             return $q.resolve(_portfolioInfo);
+        }
+
+        function getPortfolioInfoById(label, id) {
+            for (var i = 0; i < _portfolioInfo[label].length; i++) {
+                if(_portfolioInfo[label][i].Id == id) {
+                    return _portfolioInfo[label][i];
+                }
+            }
         }
 
         function pullPortfolioInfo() {
