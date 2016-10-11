@@ -17,6 +17,7 @@
         vm.loadingBar = false;
         vm.educationResult = "";
         vm.initPortfolio = initPortfolio;
+        vm.deletePortfolioItem = deletePortfolioItem;
 
         initPortfolio();
 
@@ -40,8 +41,22 @@
                     vm.loadingBar = true;
                 })
                 .then(PortfolioService.updatePortfolioInfo)
-                .then(function(portfolioInfo) {
-                    vm.portfolioInfo = portfolioInfo;
+                .then(function() {
+                    vm.loadingBar = false;
+                })
+                .catch(function(err) {
+                    $error(err);
+                });
+            
+        }
+        
+        function deletePortfolioItem(id) {
+            PortfolioService.deletePortfolioInfo(id)
+                .then(function() {
+                    vm.loadingBar = true;
+                })
+                .then(PortfolioService.updatePortfolioInfo)
+                .then(function() {
                     vm.loadingBar = false;
                 })
                 .catch(function(err) {

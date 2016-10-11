@@ -19,7 +19,8 @@
             getItemByIndex: getItemByIndex,
             getPortfolioInfo: getPortfolioInfo,
             updatePortfolioInfo: updatePortfolioInfo,
-            sendPortfolioInfo: sendPortfolioInfo
+            sendPortfolioInfo: sendPortfolioInfo,
+            deletePortfolioInfo: deletePortfolioInfo
         };
 
         function addNewItem(label, data) {
@@ -53,6 +54,10 @@
 
         function sendPortfolioInfo(data) {
             return Restangular.all("/api/member/eportfolio/" + TokenService.getToken()).post(data)
+        }
+
+        function deletePortfolioInfo(id) {
+            return Restangular.all("/api/member/eportfolio/" + TokenService.getToken() + "/" + id).remove();
         }
 
     }
