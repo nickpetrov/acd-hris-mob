@@ -40,8 +40,11 @@
                 <span class="sub-title">
                     <span ng-bind="i.StartMonth"></span>&nbsp;<span ng-bind="i.StartYear"></span> - <span ng-bind="i.EndMonth"></span>&nbsp;<span ng-bind="i.EndYear"></span>
                 </span>
-                <button class="button button-positive button-small button-delete icon ion-trash-a"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit"></button>
+                <div class="sub-text-wrapper">
+                    <span class="sub-text" ng-bind="i.Description"></span>
+                </div>
+                <button class="button button-positive button-small button-delete icon ion-trash-a" ng-click="portfolio.deletePortfolioItem(i.Id)"></button>
+                <button class="button button-positive button-small button-edit icon ion-edit" ng-click="portfolio.editPortfolioItem('employment', i.Id)"></button>
             </div>
         </ion-item>
     </ion-content>
