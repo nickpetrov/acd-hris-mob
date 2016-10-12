@@ -8,7 +8,6 @@
         $state,
         $ionicLoading,
         $stateParams,
-        GabeService,
         PortfolioService
     ) {
         /* jshint validthis: true */
@@ -18,10 +17,7 @@
         vm.onSave = onSave; //Save button
         vm.onCancel = onCancel; //Cancel button
         vm.showAlert = false; // Parameter of showing alert form validation
-        vm.selectData = { // 'from/to' month and 'from' years data for selects
-            month: GabeService.getMonths(),
-            yearsFrom: GabeService.createYearsArray()
-        };
+        vm.selectData = PortfolioService.getSelectData(); // Getting data for selects in view
         vm.currentItem = { //Form model
             org: "",
             course: "",
@@ -41,16 +37,6 @@
             vm.currentItem.monthTo = item.EndMonth;
             vm.currentItem.yearTo = item.EndYear;
         }
-
-        Object.defineProperty(vm.selectData, "yearsTo", { // adding at selectData object 'to' years data
-            configurable: true,
-            enumerable: true,
-            get: function() {
-                var c = this.yearsFrom.slice();
-                c.unshift("Present");
-                return c;
-            }
-        });
 
         function onSave() { // Save button
             if(vm.educationForm.$valid) {

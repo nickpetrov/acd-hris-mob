@@ -7,7 +7,8 @@
     function PortfolioService(
         $q,
         Restangular,
-        TokenService
+        TokenService,
+        GabeService
     ) {
         var _portfolioInfo = {
             education: [],
@@ -15,12 +16,31 @@
         };
 
         return {
+            getSelectData: getSelectData,
             getPortfolioInfo: getPortfolioInfo,
             getPortfolioInfoById: getPortfolioInfoById,
             updatePortfolioInfo: updatePortfolioInfo,
             sendPortfolioInfo: sendPortfolioInfo,
             deletePortfolioInfo: deletePortfolioInfo
         };
+
+        function getSelectData() {
+            var selectData = {};
+            selectData.month = GabeService.getMonths();
+            selectData.yearsFrom = GabeService.createYearsArray();
+
+            Object.defineProperty(selectData, "yearsTo", { // adding at selectData object 'to' years data
+                configurable: true,
+                enumerable: true,
+                get: function() {
+                    var c = this.yearsFrom.slice();
+                    c.unshift("Present");
+                    return c;
+                }
+            });
+
+            return selectData;
+        }
 
         function getPortfolioInfo() {
             return $q.resolve(_portfolioInfo);
