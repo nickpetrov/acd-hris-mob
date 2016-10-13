@@ -44,7 +44,7 @@ var js = [
     path.src + "lib/restangular/dist/restangular.js",
     path.src + "lib/ngCordova/dist/ng-cordova.js",
     path.src + "lib/moment/moment.js",
-    path.src + "lib/onezone-datepicker/dist/onezone-datepicker.min.js",
+    // path.src + "lib/onezone-datepicker/dist/onezone-datepicker.min.js",
     path.src + "modules/auth/auth.module.js",
     path.src + "modules/join/join.module.js",
     path.src + "modules/privacy/privacy.module.js",
