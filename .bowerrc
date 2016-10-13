@@ -4,6 +4,6 @@
     "angular",
     "angular-animate",
     "angular-sanitize",
-    "angular-ui-route"
+    "angular-ui-router"
   ]
 }
