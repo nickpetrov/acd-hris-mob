@@ -6,7 +6,6 @@
 
 	function EditPortfolioCtrl(
 		$scope, 
-		$state, 
 		$ionicLoading, 
 		$stateParams, 
 		PortfolioService
@@ -14,7 +13,7 @@
 		var vm = this;
 		var itemId = $stateParams;
        	
-       	vm.portfolioPart = null;	// "Education" or "Employment"
+       	vm.portfolioPart = vm.portfolioPart || null;	// "Education" or "Employment"
        	vm.onSave = onSave;		//Save button
         vm.onCancel = onCancel; //Cancel button
         vm.showAlert = false; 	// Parameter of showing alert form validation
@@ -69,4 +68,4 @@
             $state.go("app.portfolio");
         };
 	};
-})
+});
