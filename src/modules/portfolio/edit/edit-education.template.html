@@ -1,88 +1,90 @@
 <ion-view view-title="Edit Education">
-    <ion-content>
+	<ion-content>
 
-        <form name="educ.educationForm" novalidate>
-            <ion-list class="list">
-                <ion-item class="item item-input item-stacked-label">
-                    <span class="input-label bold-text">Training organisation <span class="required">*</span></span>
-                    <input type="text"
-                           name="org"
-                           placeholder="Training organisation"
-                           class="mute-text"
-                           ng-model="educ.currentItem.org"
-                           ng-required="true"
-                    >
-                </ion-item>
-                <ion-item class="item item-input item-stacked-label">
-                    <span class="input-label bold-text">Course <span class="required">*</span></span>
-                    <input type="text"
-                           name="course"
-                           placeholder="Course"
-                           class="mute-text"
-                           ng-model="educ.currentItem.course"
-                           ng-required="true"
-                    >
-                </ion-item>
-                <ion-item class="item item-input item-stacked-label education-page-grid">
-                    <span class="input-label bold-text">Dates attended <span class="required">*</span></span>
-                    <div class="row responsive-sm">
-                        <div class="col-50">
-                            <label class="date-label">From date: </label>
-                            <select class="date-select"
-                                    name="monthFrom"
-                                    ng-model="educ.currentItem.monthFrom"
-                                    ng-options="month for month in educ.selectData.month track by month"
-                                    ng-required="true"
-                            >
-                            </select>
-                            <select class="date-select"
-                                    name="yearFrom"
-                                    ng-model="educ.currentItem.yearFrom"
-                                    ng-options="year for year in educ.selectData.yearsFrom track by year"
-                                    ng-required="true"
-                            >
-                            </select>
-                        </div>
-                        <div class="col-50">
-                            <label class="date-label">To date: </label>
-                            <select class="date-select"
-                                    name="monthTo"
-                                    ng-model="educ.currentItem.monthTo"
-                                    ng-options="month for month in educ.selectData.month track by month"
-                                    ng-if="educ.currentItem.yearTo != 'Present'"
-                                    ng-required="educ.currentItem.yearTo != 'Present'"
-                            >
-                            </select>
-                            <select class="date-select"
-                                    name="yearTo"
-                                    ng-model="educ.currentItem.yearTo"
-                                    ng-options="year for year in educ.selectData.yearsTo track by year"
-                                    ng-required="true"
-                            >
-                            </select>
-                        </div>
-                    </div>
-                </ion-item>
-            </ion-list>
-            <div class="padding" ng-if="educ.showAlert && (!educ.educationForm.org.$valid ||
-                                                           !educ.educationForm.course.$valid ||
-                                                           !educ.educationForm.monthFrom.$valid ||
-                                                           !educ.educationForm.yearFrom.$valid ||
-                                                            educ.educationForm.monthTo.$error.required ||
-                                                           !educ.educationForm.yearTo.$valid)">
-                <div class="alert-block alert-error">
-                    <span>Please fill in the years you attended the course</span>
-                </div>
-            </div>
-            <div class="row responsive-sm">
-                <div class="col-50 padding-lr-10">
-                    <button class="button button-positive button-block" ng-click="educ.onSave()">Save</button>
-                </div>
-                <div class="col-50 padding-lr-10">
-                    <button class="button button-assertive button-block" ng-click="educ.onCancel()">Cancel</button>
-                </div>
-            </div>
-        </form>
+		<form name="educ.form" novalidate>
+			<ion-list class="list">
+				<ion-item class="item item-input item-stacked-label">
+					<span class="input-label bold-text">Training organisation <span class="required">*</span></span>
+					<input type="text"
+						   name="TrainingOrganisation"
+						   placeholder="Training organisation"
+						   class="mute-text"
+						   ng-model="educ.currentItem.TrainingOrganisation"
+						   ng-required="true"
+					>
+				</ion-item>
+				<ion-item class="item item-input item-stacked-label">
+					<span class="input-label bold-text">Course <span class="required">*</span></span>
+					<input type="text"
+						   name="CourseName"
+						   placeholder="Course"
+						   class="mute-text"
+						   ng-model="educ.currentItem.CourseName"
+						   ng-required="true"
+					>
+				</ion-item>
+				<ion-item class="item item-input item-stacked-label education-page-grid">
+					<span class="input-label bold-text">Dates attended <span class="required">*</span></span>
+					<div class="row responsive-sm">
+						<div class="col-50">
+							<label class="date-label">From date: </label>
+							<select class="date-select"
+									name="StartMonth"
+									ng-model="educ.currentItem.StartMonth"
+									ng-options="month for month in educ.selectData.month track by month"
+									ng-required="true"
+							>
+							</select>
+							<select class="date-select"
+									name="StartYear"
+									ng-model="educ.currentItem.StartYear"
+									ng-options="year for year in educ.selectData.yearsFrom track by year"
+									ng-required="true"
+							>
+							</select>
+						</div>
+						<div class="col-50">
+							<label class="date-label">To date: </label>
+							<select class="date-select"
+									name="EndMonth"
+									ng-model="educ.currentItem.EndMonth"
+									ng-options="month for month in educ.selectData.month track by month"
+									ng-if="educ.currentItem.EndYear != 'Present'"
+									ng-required="educ.currentItem.EndYear != 'Present'"
+							>
+							</select>
+							<select class="date-select"
+									name="EndYear"
+									ng-model="educ.currentItem.EndYear"
+									ng-options="year for year in educ.selectData.yearsTo track by year"
+									ng-required="true"
+							>
+							</select>
+						</div>
+					</div>
+				</ion-item>
+			</ion-list>
+			<div class="padding" ng-if="educ.showAlert && (
+					!educ.educationForm.TrainingOrganisation.$valid ||
+					!educ.educationForm.CourseName.$valid ||
+					!educ.educationForm.StartMonth.$valid ||
+					!educ.educationForm.StartYear.$valid ||
+					educ.educationForm.EndMonth.$error.required ||
+					!educ.educationForm.EndYear.$valid
+				)">
+				<div class="alert-block alert-error">
+					<span>Please fill in the years you attended the course</span>
+				</div>
+			</div>
+			<div class="row responsive-sm">
+				<div class="col-50 padding-lr-10">
+					<button class="button button-positive button-block" ng-click="educ.onSave()">Save</button>
+				</div>
+				<div class="col-50 padding-lr-10">
+					<button class="button button-assertive button-block" ng-click="educ.onCancel()">Cancel</button>
+				</div>
+			</div>
+		</form>
 
-    </ion-content>
+	</ion-content>
 </ion-view>
