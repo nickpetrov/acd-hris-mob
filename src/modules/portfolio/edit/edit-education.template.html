@@ -6,7 +6,7 @@
 				<ion-item class="item item-input item-stacked-label">
 					<span class="input-label bold-text">Training organisation <span class="required">*</span></span>
 					<input type="text"
-						   name="TrainingOrganisation"
+						   name="trainingOrganisationField"
 						   placeholder="Training organisation"
 						   class="mute-text"
 						   ng-model="educ.currentItem.TrainingOrganisation"
@@ -16,7 +16,7 @@
 				<ion-item class="item item-input item-stacked-label">
 					<span class="input-label bold-text">Course <span class="required">*</span></span>
 					<input type="text"
-						   name="CourseName"
+						   name="courseNameField"
 						   placeholder="Course"
 						   class="mute-text"
 						   ng-model="educ.currentItem.CourseName"
@@ -29,14 +29,14 @@
 						<div class="col-50">
 							<label class="date-label">From date: </label>
 							<select class="date-select"
-									name="StartMonth"
+									name="startMonthField"
 									ng-model="educ.currentItem.StartMonth"
 									ng-options="month for month in educ.selectData.month track by month"
 									ng-required="true"
 							>
 							</select>
 							<select class="date-select"
-									name="StartYear"
+									name="startYearField"
 									ng-model="educ.currentItem.StartYear"
 									ng-options="year for year in educ.selectData.yearsFrom track by year"
 									ng-required="true"
@@ -46,7 +46,7 @@
 						<div class="col-50">
 							<label class="date-label">To date: </label>
 							<select class="date-select"
-									name="EndMonth"
+									name="endMonthField"
 									ng-model="educ.currentItem.EndMonth"
 									ng-options="month for month in educ.selectData.month track by month"
 									ng-if="educ.currentItem.EndYear != 'Present'"
@@ -54,7 +54,7 @@
 							>
 							</select>
 							<select class="date-select"
-									name="EndYear"
+									name="endYearField"
 									ng-model="educ.currentItem.EndYear"
 									ng-options="year for year in educ.selectData.yearsTo track by year"
 									ng-required="true"
@@ -64,14 +64,7 @@
 					</div>
 				</ion-item>
 			</ion-list>
-			<div class="padding" ng-if="educ.showAlert && (
-					!educ.educationForm.TrainingOrganisation.$valid ||
-					!educ.educationForm.CourseName.$valid ||
-					!educ.educationForm.StartMonth.$valid ||
-					!educ.educationForm.StartYear.$valid ||
-					educ.educationForm.EndMonth.$error.required ||
-					!educ.educationForm.EndYear.$valid
-				)">
+			<div class="padding" ng-if="educ.showAlert">
 				<div class="alert-block alert-error">
 					<span>Please fill in the years you attended the course</span>
 				</div>

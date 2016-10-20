@@ -1,95 +1,89 @@
 <ion-view view-title="Edit Employment">
-    <ion-content>
+	<ion-content>
 
-        <form name="empl.employmentForm" novalidate>
-            <ion-list>
-                <ion-item class="item item-input item-stacked-label">
-                    <span class="input-label bold-text">Employer <span class="required">*</span></span>
-                    <input type="text"
-                           name="employer"
-                           placeholder="Employer"
-                           class="mute-text"
-                           ng-model="empl.currentItem.employer"
-                           ng-required="true"
-                    >
-                </ion-item>
-                <ion-item class="item item-input item-stacked-label">
-                    <span class="input-label bold-text">Job Title <span class="required">*</span></span>
-                    <input type="text"
-                           name="job"
-                           placeholder="Job Title"
-                           class="mute-text"
-                           ng-model="empl.currentItem.job"
-                           ng-required="true"
-                    >
-                </ion-item>
-                <ion-item class="item item-textarea">
-                    <span class="input-label bold-text">Description <span class="required">*</span></span>
-                    <textarea name="description"
-                              ng-model="empl.currentItem.description"
-                              ng-required="true"
-                    ></textarea>
-                </ion-item>
-                <ion-item class="item item-input item-stacked-label">
-                    <span class="input-label bold-text">Time worked <span class="required">*</span></span>
-                    <div class="row responsive-sm">
-                        <div class="col-50">
-                            <label class="date-label">Started at: </label>
-                            <select class="date-select"
-                                    name="monthFrom"
-                                    ng-model="empl.currentItem.monthFrom"
-                                    ng-options="month for month in empl.selectData.month track by month"
-                                    ng-required="true"
-                            >
-                            </select>
-                            <select class="date-select"
-                                    name="yearFrom"
-                                    ng-model="empl.currentItem.yearFrom"
-                                    ng-options="year for year in empl.selectData.yearsFrom track by year"
-                                    ng-required="true"
-                            >
-                            </select>
-                        </div>
-                        <div class="col-50">
-                            <label class="date-label">Finished at: </label>
-                            <select class="date-select"
-                                    name="monthTo"
-                                    ng-model="empl.currentItem.monthTo"
-                                    ng-options="month for month in empl.selectData.month track by month"
-                                    ng-if="empl.currentItem.yearTo != 'Present'"
-                                    ng-required="empl.currentItem.yearTo != 'Present'"
-                            >
-                            </select>
-                            <select class="date-select"
-                                    name="yearTo"
-                                    ng-model="empl.currentItem.yearTo"
-                                    ng-options="year for year in empl.selectData.yearsTo track by year"
-                                    ng-required="true"
-                            >
-                            </select>
-                        </div>
-                    </div>
-                </ion-item>
-            </ion-list>
-            <div class="padding" ng-if="empl.showAlert && (empl.employmentForm.employer.$error.required ||
-                                                           empl.employmentForm.job.$error.required ||
-                                                           empl.employmentForm.description.$error.required ||
-                                                           empl.employmentForm.monthFrom.$error.required ||
-                                                           empl.employmentForm.yearFrom.$error.required ||
-                                                           empl.employmentForm.monthTo.$error.required ||
-                                                           empl.employmentForm.yearTo.$error.required)">
-                <div class="alert-block alert-error">
-                    <span>Please fill in the time period worked.</span>
-                </div>
-            </div>
-            <div class="row responsive-sm">
-                <div class="col-50 padding-lr-10">
-                    <button class="button button-positive button-block" ng-click="empl.onSave()">Save</button>
-                </div>
-                <div class="col-50 padding-lr-10">
-                    <button class="button button-assertive button-block" ng-click="empl.onCancel()">Cancel</button>
-                </div>
-            </div>
-        </form>
-    </ion-content>
+		<form name="empl.form" novalidate>
+			<ion-list>
+				<ion-item class="item item-input item-stacked-label">
+					<span class="input-label bold-text">Employer <span class="required">*</span></span>
+					<input type="text"
+						name="Employer"
+						placeholder="Employer"
+						class="mute-text"
+						ng-model="empl.currentItem.Employer"
+						ng-required="true"
+					>
+				</ion-item>
+				<ion-item class="item item-input item-stacked-label">
+					<span class="input-label bold-text">Job Title <span class="required">*</span></span>
+					<input type="text"
+						name="JobTitle"
+						placeholder="Job Title"
+						class="mute-text"
+						ng-model="empl.currentItem.JobTitle"
+						ng-required="true"
+					>
+				</ion-item>
+				<ion-item class="item item-textarea">
+					<span class="input-label bold-text">Description <span class="required">*</span></span>
+					<textarea name="Description"
+						ng-model="empl.currentItem.Description"
+						ng-required="true"
+					></textarea>
+				</ion-item>
+				<ion-item class="item item-input item-stacked-label">
+					<span class="input-label bold-text">Time worked <span class="required">*</span></span>
+					<div class="row responsive-sm">
+						<div class="col-50">
+							<label class="date-label">Started at: </label>
+							<select class="date-select"
+								name="StartMonth"
+								ng-model="empl.currentItem.StartMonth"
+								ng-options="month for month in empl.selectData.month track by month"
+								ng-required="true"
+							>
+							</select>
+							<select class="date-select"
+								name="StartYear"
+								ng-model="empl.currentItem.StartYear"
+								ng-options="year for year in empl.selectData.yearsFrom track by year"
+								ng-required="true"
+							>
+							</select>
+						</div>
+						<div class="col-50">
+							<label class="date-label">Finished at: </label>
+							<select class="date-select"
+								name="EndMonth"
+								ng-model="empl.currentItem.EndMonth"
+								ng-options="month for month in empl.selectData.month track by month"
+								ng-if="empl.currentItem.EndYear != 'Present'"
+								ng-required="empl.currentItem.EndYear != 'Present'"
+							>
+							</select>
+							<select class="date-select"
+								name="EndYear"
+								ng-model="empl.currentItem.EndYear"
+								ng-options="year for year in empl.selectData.yearsTo track by year"
+								ng-required="true"
+							>
+							</select>
+						</div>
+					</div>
+				</ion-item>
+			</ion-list>
+			<div class="padding" ng-if="empl.showAlert">
+				<div class="alert-block alert-error">
+					<span>Please fill in the time period worked.</span>
+				</div>
+			</div>
+			<div class="row responsive-sm">
+				<div class="col-50 padding-lr-10">
+					<button class="button button-positive button-block" ng-click="empl.onSave()">Save</button>
+				</div>
+				<div class="col-50 padding-lr-10">
+					<button class="button button-assertive button-block" ng-click="empl.onCancel()">Cancel</button>
+				</div>
+			</div>
+		</form>
+	</ion-content>
 </ion-view>
