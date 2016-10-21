@@ -1,0 +1,33 @@
+[data-portfolio-slider] {
+	.slider {
+		text-align: center;
+	}
+
+	.slider-pager {
+		position: relative;
+		bottom: 0;
+		height: auto;
+		width: auto;
+		display: inline-block;
+	}
+
+	.slider-pager .slider-pager-page {
+		color: $positive;
+		float: left;
+	}
+
+	.slider-slides {
+		height: auto;
+	}
+
+	.slider-slide {
+		text-align: left;
+	}
+
+	.slider-slides::after, 
+	.slider-pager::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}

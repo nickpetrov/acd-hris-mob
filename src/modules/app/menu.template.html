@@ -1,20 +1,23 @@
 <ion-list>
-    <ion-item ui-sref="app.portfolio" menu-close>
+    <ion-item ui-sref="app.dashboard" ui-sref-active="text-positive" menu-close>
+        Dasboard
+    </ion-item>    
+    <ion-item ui-sref="app.portfolio" ui-sref-active="text-positive" menu-close>
         My ePortfolio
     </ion-item>
     <ion-item menu-close ng-click="app.openInBrowse('job')">
         Job Board
     </ion-item>
-    <ion-item ui-sref="app.kiosk" menu-close>
+    <ion-item ui-sref="app.kiosk" ui-sref-active="text-positive" menu-close>
         Employee Kiosk
     </ion-item>
     <ion-item menu-close ng-click="app.openInBrowse('courses')">
         CPD
     </ion-item>
-    <ion-item ui-sref="app.rewards" menu-close>
+    <ion-item ui-sref="app.rewards" ui-sref-active="text-positive" menu-close>
         Member Rewards
     </ion-item>
-    <ion-item ui-sref="app.upskilling" menu-close>
+    <ion-item ui-sref="app.upskilling" ui-sref-active="text-positive" menu-close>
         Education & Upskilling
     </ion-item>
 </ion-list>

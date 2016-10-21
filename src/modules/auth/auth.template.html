@@ -8,9 +8,8 @@
 		<div class="row">
 			<div class="col">
 				<form class="form-auth" name="auth.formAuth" ng-submit="auth.login()">
-					<h2>ACDN Login</h2>
 					<div class="list">
-						<label class="item item-input">
+						<label class="item item-input item-floating-label">
 							<span class="input-label mute-text"
 								  ng-class="{'text-error': !auth.formAuth.userName.$valid && auth.errorAlert}">Username
 							</span>
@@ -23,7 +22,7 @@
 								   ng-change="auth.errorAlert = false"
 							>
 						</label>
-						<label class="item item-input">
+						<label class="item item-input item-floating-label">
 							<span class="input-label mute-text"
 								  ng-class="{'text-error': !auth.formAuth.password.$valid && auth.errorAlert}">Password
 							</span>
@@ -40,12 +39,11 @@
 					<div class="alert-block alert-error" ng-if="!auth.formAuth.$valid && auth.errorAlert">
 						<span>Incorrect username or password</span>
 					</div>
-					<div class="padding-tb-10 button-wrapper">
+					<div class="button-bar button-bar-positive">
 						<button class="button button-positive button-block" type="submit">Login</button>
 						<button class="button button-positive button-block" ui-sref="join">Join ACDN</button>
 					</div>
-					<hr class="hidden" />
-					<div class="forgot-pass">
+					<div class="item text-center">
 						<a ui-sref="reset">I forgot my password</a>
 					</div>
 				</form>

@@ -1,30 +1,39 @@
     <ion-view view-title="Upskilling">
-    <ion-content padding="true" class="upskilling-page">
+        <ion-content padding="true" class="upskilling-page">
         <div class="ionic-content join-page">
-            <p class="bold-text text-justify">Upskilling information is currently only available online for residents of Victoria. For other states, please contact us.</p>
-            <p class="text-justify">Working in aged care is not like other jobs. It is not like working in an office environment in the city. Being an aged care professional means staying on top of your knowledge because if you do not, people might die.</p>
-            <p class="text-justify">There are a wide variety of education and training opportunities for people who work in aged care. It might be the next step qualification, moving from the Certificate III in Aged Care up to the Certificate IV in Aged Care, or it might be something completely different such as learning some IT or language skills. At ACDN we believe a mix of these various options is best.</p>
-            <p class="text-justify">Depending upon your role, your current qualification and where in Australia you live, there are a variety of courses and government funding options. Answer the short questions below for an indication of what you might be eligible for.</p>
+            <strong>Upskilling information is currently only available online for residents of Victoria. For other states, please contact us.</strong>
+            <p>Working in aged care is not like other jobs. It is not like working in an office environment in the city. Being an aged care professional means staying on top of your knowledge because if you do not, people might die.</p>
+            <p>There are a wide variety of education and training opportunities for people who work in aged care. It might be the next step qualification, moving from the Certificate III in Aged Care up to the Certificate IV in Aged Care, or it might be something completely different such as learning some IT or language skills. At ACDN we believe a mix of these various options is best.</p>
+            <p>Depending upon your role, your current qualification and where in Australia you live, there are a variety of courses and government funding options. Answer the short questions below for an indication of what you might be eligible for.</p>
 
             <div class="list">
-                <label class="item item-select-custom">
-                    <span class="label-custom">Citizenship/Residency</span>
-                    <select class="select-custom" ng-options="c.name for c in skill.citizenships" ng-model="skill.selectData.citizenships"></select>
-                </label>
+                <div class="item item-input item-select">
+                    <label for="residency-field" class="input-label">Citizenship/Residency</label>
+                    <select id="residency-field" 
+                        ng-options="c.name for c in skill.citizenships" 
+                        ng-model="skill.selectData.citizenships">
+                    </select>
+                </div>
             </div>
 
             <div class="list" ng-if="skill.selectData.citizenships">
-                <label class="item item-select-custom">
-                    <span class="label-custom">Highest Qualification Level</span>
-                    <select class="select-custom" ng-options="c.name for c in skill.qualification" ng-model="skill.selectData.qualification"></select>
-                </label>
+                <div class="item item-input item-select">
+                    <label for="level-field">Highest Qualification Level</label>
+                    <select id="level-field"
+                        ng-options="c.name for c in skill.qualification" 
+                        ng-model="skill.selectData.qualification">
+                    </select>
+                </div>
             </div>
 
             <div class="list" ng-if="skill.selectData.qualification">
-                <label class="item item-select-custom">
-                    <span class="label-custom">Study Status</span>
-                    <select class="select-custom" ng-options="c.name for c in skill.studyStatus" ng-model="skill.selectData.studyStatus"></select>
-                </label>
+                <div class="item item-input item-select">
+                    <label for="status-field">Study Status</label>
+                    <select id="status-field" 
+                        ng-options="c.name for c in skill.studyStatus"
+                        ng-model="skill.selectData.studyStatus">
+                    </select>
+                </div>
             </div>
 
             <div ng-if="skill.selectData.citizenships && skill.selectData.qualification && skill.selectData.studyStatus">

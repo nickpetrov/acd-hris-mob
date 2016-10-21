@@ -1,74 +1,117 @@
 <ion-view view-title="Members - ACDN">
-    <ion-content padding="true" class="ionic-grid">
-        <h2>Welcome, <span class="bold-text" ng-bind="dashboard.userInfo.firstName ? dashboard.userInfo.firstName : 'John'"></span></h2>
-        <h4 class="sub-member">Member since June 2016</h4>
-
-        <div class="row responsive-sm">
-            <div class="col-50">
-                <ion-item ui-sref="app.portfolio">
-                    <div class="board">
-                        <h2 class="board-title">My ePortfolio</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-folder"></div>
-                            <div class="content">Build your ACDN ePortfolio to keep track of your education, Continuing Professional Development, and to present yourself to potential employers.</div>
+    <ion-content padding="true" class="ionic-grid dashboard">
+        <div class="greeting">
+            <h2>Welcome, <span ng-bind="dashboard.userInfo.firstName ? dashboard.userInfo.firstName : 'John'"></span></h2>
+            <h4>Member since June 2016</h4>
+        </div>
+        <div class="info-tiles-widget">
+            <div class="row responsive-sm">
+                <div class="col col-50">
+                    <div class="card" ui-sref="app.portfolio">
+                        <div class="item item-divider">
+                            <h2>My ePortfolio</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-folder"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Build your ACDN ePortfolio to keep track of your education, Continuing Professional Development, and to present yourself to potential employers.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
+                </div>
+                <div class="col col-50">
+                    <div class="card" ng-click="dashboard.openInBrowse('courses')">
+                        <div class="item item-divider">
+                            <h2>Continuing Professional Development (CPD)</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-android-checkbox"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Stay up-to-date and get a step-ahead of the rest by engaging with the ACDN Continuing Professional Development courses. Access free courses provided by our partner H1Learning by clicking on the button below.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-50">
-                <ion-item ng-click="dashboard.openInBrowse('job')">
-                    <div class="board">
-                        <h2 class="board-title">Job Board</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-person"></div>
-                            <div class="content">Looking for a new job? ACDN's job board helps to link you with the right employers.</div>
+            <div class="row responsive-sm">
+                <div class="col col-50">
+                    <div class="card" ng-click="dashboard.openInBrowse('job')">
+                        <div class="item item-divider">
+                            <h2>Job Board</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-person"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Looking for a new job? ACDN's job board helps to link you with the right employers.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
+                </div>
+                <div class="col col-50">
+                    <div class="card" ui-sref="app.rewards">
+                        <div class="item item-divider">
+                            <h2>Member Rewards</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-ios-star"></i>
+                                </div>
+                                <div class="col">
+                                    <span>A member rewards program designed to let you access discounts on a wide variety of day to day products and services.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-50">
-                <ion-item ui-sref="app.kiosk">
-                    <div class="board">
-                        <h2 class="board-title">Employee Kiosk</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-monitor"></div>
-                            <div class="content">Leave requests, payroll, and staff surveys for <span class="bold-text">Lonsdale Aged Care</span>.</div>
+            <div class="row responsive-sm">
+                <div class="col col-50">
+                    <div class="card" ui-sref="app.kiosk">
+                        <div class="item item-divider">
+                            <h2>Employee Kiosk</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-monitor"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Leave requests, payroll, and staff surveys for <span class="bold-text">Lonsdale Aged Care</span>.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
-            </div>
-            <div class="col-50">
-                <ion-item ng-click="dashboard.openInBrowse('courses')">
-                    <div class="board">
-                        <h2 class="board-title">Continuing Professional Development (CPD)</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-android-checkbox"></div>
-                            <div class="content">Stay up-to-date and get a step-ahead of the rest by engaging with the ACDN Continuing Professional Development courses. Access free courses provided by our partner H1Learning by clicking on the button below.</div>
+                </div>
+                <div class="col col-50">
+                    <div class="card" ui-sref="app.upskilling">
+                        <div class="item item-divider">
+                            <h2>Education &amp; Upskilling</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-ios-bookmarks"></i>
+                                </div>
+                                <div class="col">
+                                    <span>You might be eligible for Government funded training that will help you move up in your career.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
-            </div>
-            <div class="col-50">
-                <ion-item ui-sref="app.rewards">
-                    <div class="board">
-                        <h2 class="board-title">Member Rewards</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-ios-star"></div>
-                            <div class="content">A member rewards program designed to let you access discounts on a wide variety of day to day products and services.</div>
-                        </div>
-                    </div>
-                </ion-item>
-            </div>
-            <div class="col-50">
-                <ion-item ui-sref="app.upskilling">
-                    <div class="board">
-                        <h2 class="board-title">Education & Upskilling</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-ios-bookmarks"></div>
-                            <div class="content">You might be eligible for Government funded training that will help you move up in your career.</div>
-                        </div>
-                    </div>
-                </ion-item>
+                </div>
             </div>
         </div>
     </ion-content>

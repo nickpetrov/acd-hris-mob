@@ -1,0 +1,15 @@
+.rewards-partners-list {
+	.col {
+		padding: 0;
+	}
+	.list {
+		margin-top: 0;
+		margin-bottom: 10px;
+
+		.item {
+		    overflow: auto;
+		    text-overflow: clip;
+		    white-space: normal;
+		}
+	}
+}

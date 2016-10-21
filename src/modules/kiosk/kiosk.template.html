@@ -1,38 +1,60 @@
 <ion-view view-title="Lonsdale Aged Care Employee Kiosk">
-    <ion-content padding="true" class="kiosk-page ionic-grid">
-        <div class="row responsive-sm">
-            <div class="col-50">
-                <ion-item ui-sref="app.surveys">
-                    <div class="board">
-                        <h2 class="board-title">Staff Surveys and Feedback</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-clipboard"></div>
-                            <div class="content">Complete surveys created by your employer, or enter your own anonymous feedback.</div>
+    <ion-content padding="true" class="ionic-grid">
+        <div class="info-tiles-widget">
+            <div class="row responsive-sm">
+                <div class="col col-50">
+                    <div class="card">
+                        <div class="item item-divider">
+                            <h2>Staff Surveys and Feedback</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-clipboard"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Complete surveys created by your employer, or enter your own anonymous feedback.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
+                </div>
+                <div class="col col-50">
+                    <div class="card">
+                        <div class="item item-divider">
+                            <h2>My Pay</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-card"></i>
+                                </div>
+                                <div class="col">
+                                    <span>View pay stubs and pay history.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-50">
-                <ion-item ui-sref="app.pay">
-                    <div class="board">
-                        <h2 class="board-title">My Pay</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-card"></div>
-                            <div class="content">View pay stubs and pay history.</div>
+            <div class="row responsive-sm">
+                <div class="col">
+                    <div class="card">
+                        <div class="item item-divider">
+                            <h2>My Leave Requests</h2>
+                        </div>
+                        <div class="item item-body">
+                            <div class="row">
+                                <div class="col col-30">
+                                    <i class="icon icon-lg ion-navigate"></i>
+                                </div>
+                                <div class="col">
+                                    <span>Check, review, and create requests for leave. You can also view your accrued entitlements and past leave uses.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </ion-item>
-            </div>
-            <div class="col-100">
-                <ion-item ui-sref="app.requests">
-                    <div class="board">
-                        <h2 class="board-title">My Leave Requests</h2>
-                        <div class="board-body">
-                            <div class="thumbnail ion-navigate"></div>
-                            <div class="content">Check, review, and create requests for leave. You can also view your accrued entitlements and past leave uses.</div>
-                        </div>
-                    </div>
-                </ion-item>
+                </div>
             </div>
         </div>
     </ion-content>
