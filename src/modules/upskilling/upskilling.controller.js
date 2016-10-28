@@ -2,6 +2,15 @@
 
     angular
         .module("acdn-hris.app")
-        .controller("UpskillingCtrl", ACDN.Core.MembershipPortal.get("UpskillingCtrl"));
+        .controller("UpskillingProtoCtrl", ACDN.Core.MembershipPortal.get("UpskillingProtoCtrl"))
+        .controller("UpskillingCtrl", UpskillingCtrl);
+
+    function UpskillingCtrl($controller) {
+    	var vm = this;
+
+    	$controller("UpskillingProtoCtrl", {
+    		$scope: vm
+    	});
+    }
 
 })();

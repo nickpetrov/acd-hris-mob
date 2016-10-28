@@ -1,99 +1,99 @@
-@media only screen and (min-width : 481px) {
+// @media only screen and (min-width : 481px) {
 
-  .logo,
-  .form-auth{
-    display: block;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+//   .logo,
+//   .form-auth{
+//     display: block;
+//     max-width: 450px;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
 
-  .button-wrapper .button.button-block {
-    display: inline-block;
-    width: auto;
-    float: right;
-    clear: none;
-  }
+//   .button-wrapper .button.button-block {
+//     display: inline-block;
+//     width: auto;
+//     float: right;
+//     clear: none;
+//   }
 
-  .button-wrapper .button.button-block {
-    display: inline-block;
-    width: auto;
-    float: right;
-    clear: none;
-    margin-left: 15px;
-  }
+//   .button-wrapper .button.button-block {
+//     display: inline-block;
+//     width: auto;
+//     float: right;
+//     clear: none;
+//     margin-left: 15px;
+//   }
 
-  .button-wrapper:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+//   .button-wrapper:after {
+//     content: "";
+//     display: table;
+//     clear: both;
+//   }
 
-  .forgot-pass {
-    padding: 5px 0;
-  }
+//   .forgot-pass {
+//     padding: 5px 0;
+//   }
 
-  .hidden {
-    display: none;
-  }
+//   .hidden {
+//     display: none;
+//   }
 
-}
+// }
 
-//Ionic grid
-@media only screen and (max-width : 567px) {
-  .ionic-grid {
-    .row {
-      flex-wrap: nowrap;
-    }
-  }
+// //Ionic grid
+// @media only screen and (max-width : 567px) {
+//   .ionic-grid {
+//     .row {
+//       flex-wrap: nowrap;
+//     }
+//   }
 
-}
+// }
 
-//Rewards Page
-@media only screen and (max-width : 767px) {
-  .rewards-page {
+// //Rewards Page
+// @media only screen and (max-width : 767px) {
+//   .rewards-page {
 
-    .row {
-      flex-wrap: wrap;
+//     .row {
+//       flex-wrap: wrap;
 
-      .col {
-        flex-basis: 50%;
-        max-width: 50%;
-        width: 50%;
-      }
-    }
+//       .col {
+//         flex-basis: 50%;
+//         max-width: 50%;
+//         width: 50%;
+//       }
+//     }
 
-  }
-}
+//   }
+// }
 
-@media only screen and (max-width : 567px) {
-  .rewards-page {
+// @media only screen and (max-width : 567px) {
+//   .rewards-page {
 
-    .row {
-      flex-wrap: wrap;
+//     .row {
+//       flex-wrap: wrap;
 
-      .col {
-        margin: 0 auto;
-        flex-basis: 60%;
-        max-width: 60%;
-        width: 60%;
-      }
-    }
+//       .col {
+//         margin: 0 auto;
+//         flex-basis: 60%;
+//         max-width: 60%;
+//         width: 60%;
+//       }
+//     }
 
-  }
-}
-@media only screen and (max-width : 380px) {
-  .rewards-page {
+//   }
+// }
+// @media only screen and (max-width : 380px) {
+//   .rewards-page {
 
-    .row {
-      flex-wrap: wrap;
+//     .row {
+//       flex-wrap: wrap;
 
-      .col {
-        flex-basis: 100%;
-        max-width: 100%;
-        width: 100%;
-      }
-    }
+//       .col {
+//         flex-basis: 100%;
+//         max-width: 100%;
+//         width: 100%;
+//       }
+//     }
 
-  }
-}
+//   }
+// }

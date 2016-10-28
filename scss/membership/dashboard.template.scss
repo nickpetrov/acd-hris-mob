@@ -1,0 +1,14 @@
+.dashboard {
+	.greeting {
+		text-align: center;
+	}
+
+	.icon-lg, .greeting h2 {
+		color: $positive;
+	}
+
+	.greeting h4 {
+		font-weight: 300;
+		color: $dark;
+	}
+}

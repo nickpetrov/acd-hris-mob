@@ -1,51 +1,98 @@
 <ion-view view-title="My ePortfolio">
     <ion-content class="portfolio-page" scroll="true">
-        <ion-item class="item item-thumbnail-left">
-            <img src="img/avatar.jpeg">
-            <h3><span ng-bind="'John'"></span> Bloggs</h3>
-            <h4><span class="bold-text">Preferred name: </span>Spirit</h4>
-            <h4><span class="bold-text">DOB: </span>Example</h4>
-            <h4><span class="bold-text">Email: </span>sandbox@agedcaredn.com.au</h4>
-            <h4><span class="bold-text">Mobile: </span>0412345678</h4>
-            <button class="button button-positive button-small" ui-sref="app.changePhoto">Change photo</button>
-            <button class="button button-positive button-small" ui-sref="app.userDetails">Edit details</button>
-        </ion-item>
-        <ion-item ng-if="portfolio.loadingBar">
-            <div class="loading-bar">
-                <img class="loading-bar-img" src="img/spinner.gif" alt="spinner">
-                <span class="loading-bar-text">Data is on updating. Please wait ...</span>
-            </div>
-        </ion-item>
-        <ion-item ng-if="!portfolio.loadingBar">
-            <div class="section-title-block">
-                <h3 class="section-title">Education</h3>
-                <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-education"></span>
-            </div>
-            <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.education track by $index">
-                <span class="sub-title bold-text" ng-bind="i.CourseName"></span>
-                <span class="sub-title bold-text" ng-bind="i.TrainingOrganisation"></span>
-                <span class="sub-title"><span ng-bind="i.StartMonth"></span>&nbsp;<span ng-bind="i.StartYear"></span> - <span ng-bind="i.EndMonth"></span>&nbsp;<span ng-bind="i.EndYear"></span></span>
-                <button class="button button-positive button-small button-delete icon ion-trash-a" ng-click="portfolio.deletePortfolioItem(i.Id)"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit" ng-click="portfolio.editPortfolioItem('education', i.Id)"></button>
-            </div>
-        </ion-item>
-        <ion-item ng-if="!portfolio.loadingBar">
-            <div class="section-title-block">
-                <h3 class="section-title">Employment Experience</h3>
-                <span class="section-title-icon ion-plus-circled" ui-sref="app.edit-employment"></span>
-            </div>
-            <div class="sub-item" ng-repeat="i in portfolio.portfolioInfo.employment track by $index">
-                <span class="sub-title bold-text" ng-bind="i.JobTitle"></span>
-                <span class="sub-title bold-text" ng-bind="i.Employer"></span>
-                <span class="sub-title">
-                    <span ng-bind="i.StartMonth"></span>&nbsp;<span ng-bind="i.StartYear"></span> - <span ng-bind="i.EndMonth"></span>&nbsp;<span ng-bind="i.EndYear"></span>
-                </span>
-                <div class="sub-text-wrapper">
-                    <span class="sub-text" ng-bind="i.Description"></span>
+        <ion-item class="item">
+            <div class="row responsive-sm">
+                <div class="col col-25 col-offset-10">
+                    <img src="img/avatar.jpeg">
                 </div>
-                <button class="button button-positive button-small button-delete icon ion-trash-a" ng-click="portfolio.deletePortfolioItem(i.Id)"></button>
-                <button class="button button-positive button-small button-edit icon ion-edit" ng-click="portfolio.editPortfolioItem('employment', i.Id)"></button>
+                <div class="col col-50 col-offset-10">
+                    <h1 class="text-positive">John Bloggs</h1>
+                    <div class="item-text-wrap">
+                        <p>Preferred name: <span class="text-positive">Spirit</span></p>
+                        <p>DOB: <span class="text-positive">Example</span></p>
+                        <p>Email: <a href="mailto:sandbox@agedcaredn.com.au" class="text-positive">sandbox@agedcaredn.com.au</a></p>
+                        <p>Mobile: <a href="tal:+0412345678" class="text-positive">0412345678</a></p>
+                    </div>
+                </div>
             </div>
+
+            <div class="button-bar button-bar-positive custom-button-bar">
+                <button class="button button-positive button-small" ng-class="{'active': portfolio.editModeEnabled}" on-tap="portfolio.toggleEditMode()">Edit portfolio</button>
+                <button class="button button-positive button-small" ui-sref="app.changePhoto">Change photo</button>
+                <button class="button button-positive button-small" ui-sref="app.userDetails">Edit profile</button>
+            </div>
+            <div class="button-bar button-bar-positive custom-button-bar">
+                <button class="button button-positive button-small" ui-sref="app.edit-education">Add education</button>
+                <button class="button button-positive button-small" ui-sref="app.edit-employment">Add employment</button>
+            </div>
+        </ion-item>
+        <ion-item ng-if="!portfolio.loadingBar" data-portfolio-slider>
+            <h2 class="text-center text-positive weight-bold">Education</h2>
+
+            <ion-slide-box pager-click="portfolio.slideTo(index)" active-slide="0" does-continue="true">
+                <ion-slide ng-repeat="entry in portfolio.portfolioInfo.education track by $index">
+                    <div class="card card-positive">
+                        <div class="item item-divider">
+                            <h2 class="text-center"> {{entry.CourseName}} </h2>
+                        </div>
+                        <div class="item item-body">
+                            <strong>Training organization:</strong><span class="text-positive">&nbsp;{{entry.TrainingOrganisation}}</span>
+                            <p>{{entry.StartMonth}}&nbsp;{{entry.StartYear}}&nbsp;&ndash;&nbsp;<span ng-if="entry.EndYear != 'Present'">{{entry.EndMonth}}</span>&nbsp;{{entry.EndYear}}</p>
+                        </div>
+                        <div 
+                            class="item item-divider"
+                            ng-show="portfolio.editModeEnabled">
+                            <div class="button-bar button-bar-stable">
+                                <button 
+                                    class="button button-light button-small" 
+                                    ng-click="portfolio.deletePortfolioItem(entry.Id)">
+                                    <i class="icon ion-trash-a"></i>    
+                                </button>
+                                <button 
+                                    class="button button-light button-small" 
+                                    ng-click="portfolio.editPortfolioItem('education', entry.Id)">
+                                    <i class="icon ion-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </ion-item>
+        <ion-item ng-if="!portfolio.loadingBar" data-portfolio-slider>
+            <h2 class="text-center text-positive weight-bold">Employment Experience</h2>
+
+            <ion-slide-box pager-click="portfolio.slideTo(index)" active-slide="0" does-continue="true">
+                <ion-slide ng-repeat="entry in portfolio.portfolioInfo.employment track by $index">
+                    <div class="card card-positive">
+                        <div class="item item-divider">
+                            <h2 class="text-center"> {{entry.JobTitle}} </h2>
+                            <h3 class="text-center"> <span class="weight-normal">at</span> {{entry.Employer}} </h3>
+                        </div>
+                        <div class="item item-body">
+                            <strong>Description:</strong>
+                            <p class="text-positive"> {{entry.Description}} </p>
+                            <p>{{entry.StartMonth}}&nbsp;{{entry.StartYear}}&nbsp;&ndash;&nbsp;<span ng-if="entry.EndYear != 'Present'">{{entry.EndMonth}}</span>&nbsp;{{entry.EndYear}}</p>
+                        </div>
+                        <div 
+                            class="item item-divider"
+                            ng-show="portfolio.editModeEnabled">
+                            <div class="button-bar button-bar-stable">
+                                <button 
+                                    class="button button-light button-small" 
+                                    ng-click="portfolio.deletePortfolioItem(entry.Id)">
+                                    <i class="icon ion-trash-a"></i>    
+                                </button>
+                                <button 
+                                    class="button button-light button-small" 
+                                    ng-click="portfolio.editPortfolioItem('employment', entry.Id)">
+                                    <i class="icon ion-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
         </ion-item>
     </ion-content>
 </ion-view>

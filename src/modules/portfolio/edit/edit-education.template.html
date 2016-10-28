@@ -1,80 +1,99 @@
-<ion-view view-title="Edit Education">
+<ion-view view-title="Edit employment">
 	<ion-content>
 
-		<form name="educ.form" novalidate>
-			<ion-list class="list">
-				<ion-item class="item item-input item-stacked-label">
-					<span class="input-label bold-text">Training organisation <span class="required">*</span></span>
+		<form name="empl.form" novalidate>
+			<ion-list>
+				<ion-item class="item item-input item-floating-label">
+					<span class="input-label text-positive">Training organisation <span class="input-required">*</span></span>
 					<input type="text"
-						   name="trainingOrganisationField"
-						   placeholder="Training organisation"
-						   class="mute-text"
-						   ng-model="educ.currentItem.TrainingOrganisation"
-						   ng-required="true"
-					>
+						name="trainingOrganisationField"
+						placeholder="Training organisation"
+						class="mute-text"
+						ng-model="empl.currentItem.TrainingOrganisation"
+						ng-required="true"
+					/>
 				</ion-item>
-				<ion-item class="item item-input item-stacked-label">
-					<span class="input-label bold-text">Course <span class="required">*</span></span>
+				<ion-item class="item item-input item-floating-label">
+					<span class="input-label text-positive">Course <span class="input-required">*</span></span>
 					<input type="text"
-						   name="courseNameField"
-						   placeholder="Course"
-						   class="mute-text"
-						   ng-model="educ.currentItem.CourseName"
-						   ng-required="true"
-					>
+						name="courseNameField"
+						placeholder="Course"
+						class="mute-text"
+						ng-model="empl.currentItem.CourseName"
+						ng-required="true"
+					/>
 				</ion-item>
-				<ion-item class="item item-input item-stacked-label education-page-grid">
-					<span class="input-label bold-text">Dates attended <span class="required">*</span></span>
+				<ion-item>
+					<span class="text-positive">Dates attended</span><span class="input-required">*</span>
+					<p>
+						<strong>Started at:</strong>
+					</p>
 					<div class="row responsive-sm">
-						<div class="col-50">
-							<label class="date-label">From date: </label>
-							<select class="date-select"
-									name="startMonthField"
-									ng-model="educ.currentItem.StartMonth"
-									ng-options="month for month in educ.selectData.month track by month"
-									ng-required="true"
-							>
-							</select>
-							<select class="date-select"
-									name="startYearField"
-									ng-model="educ.currentItem.StartYear"
-									ng-options="year for year in educ.selectData.yearsFrom track by year"
-									ng-required="true"
-							>
-							</select>
+						<div class="col col-50">
+							<div class="item item-input item-select">
+								<div class="input-label">Label</div>
+								<select
+									name="StartMonth"
+									ng-model="empl.currentItem.StartMonth"
+									ng-options="month for month in empl.selectData.month track by month"
+									ng-required="true">
+									<option selected disabled value="Month"></option>
+								</select>
+							</div>
 						</div>
-						<div class="col-50">
-							<label class="date-label">To date: </label>
-							<select class="date-select"
-									name="endMonthField"
-									ng-model="educ.currentItem.EndMonth"
-									ng-options="month for month in educ.selectData.month track by month"
-									ng-if="educ.currentItem.EndYear != 'Present'"
-									ng-required="educ.currentItem.EndYear != 'Present'"
-							>
-							</select>
-							<select class="date-select"
-									name="endYearField"
-									ng-model="educ.currentItem.EndYear"
-									ng-options="year for year in educ.selectData.yearsTo track by year"
-									ng-required="true"
-							>
-							</select>
+						<div class="col col-50">
+							<div class="item item-input item-select">
+								<div class="input-label">Label</div>
+								<select
+									name="StartYear"
+									ng-model="empl.currentItem.StartYear"
+									ng-options="year for year in empl.selectData.yearsFrom track by year"
+									ng-required="true">
+									<option selected disabled value="Year"></option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<p>
+						<strong>Finished at:</strong>
+					</p>
+					<div class="row responsive-sm">
+						<div class="col col-50">
+							<div class="item item-input item-select">
+								<div class="input-label">Label</div>
+								<select
+									name="EndMonth"
+									ng-model="empl.currentItem.EndMonth"
+									ng-options="month for month in empl.selectData.month track by month"
+									ng-if="empl.currentItem.EndYear != 'Present'"
+									ng-required="empl.currentItem.EndYear != 'Present'">
+									<option selected disabled value="Month"></option>
+								</select>
+							</div>
+						</div>
+						<div class="col col-50">
+							<div class="item item-input item-select">
+								<div class="input-label">Label</div>
+								<select
+									name="EndYear"
+									ng-model="empl.currentItem.EndYear"
+									ng-options="year for year in empl.selectData.yearsTo track by year"
+									ng-required="true">
+									<option selected disabled value="Year"></option>
+								</select>
+							</div>
 						</div>
 					</div>
 				</ion-item>
-			</ion-list>
-			<div class="padding" ng-if="educ.showAlert">
+			<div class="padding" ng-if="empl.showAlert">
 				<div class="alert-block alert-error">
 					<span>Please fill in the years you attended the course</span>
 				</div>
 			</div>
-			<div class="row responsive-sm">
-				<div class="col-50 padding-lr-10">
-					<button class="button button-positive button-block" ng-click="educ.onSave()">Save</button>
-				</div>
-				<div class="col-50 padding-lr-10">
-					<button class="button button-assertive button-block" ng-click="educ.onCancel()">Cancel</button>
+			<div class="row row-bottom">
+				<div class="button-bar">
+					<button class="button button-positive" ng-click="empl.onSave()">Save</button>
+					<button class="button button-assertive" ng-click="empl.onCancel()">Cancel</button>
 				</div>
 			</div>
 		</form>

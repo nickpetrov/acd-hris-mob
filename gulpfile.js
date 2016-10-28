@@ -39,10 +39,8 @@ var fonts = [
 
 var js = [
     path.src + "lib/ionic/js/ionic.bundle.js",
-    path.src + "lib/lodash/lodash.js",
-    path.src + "lib/restangular/dist/restangular.js",
     path.src + "lib/ngCordova/dist/ng-cordova.js",
-    path.src + "lib/acdn-lib/dist/acd-lib.js",
+    path.src + "lib/acdn-lib/dist/acdn-lib.js",
     path.src + "modules/auth/auth.module.js",
     path.src + "modules/join/join.module.js",
     path.src + "modules/privacy/privacy.module.js",
@@ -161,23 +159,6 @@ var createConfig = function(environment){
         }))
 };
 
-
-//Tasks for creating common js file
-// var jsDevTask = function() {
-//     return gulp.src(js)
-//         .pipe(plumber())
-//         .pipe(sourcemaps.init()).on("error", handleErrors)
-//         .pipe(addStream.obj(createConfig("development")))
-//         .on("error", handleErrors)
-//         .pipe(ngAnnotate())
-//         .on("error", handleErrors)
-//         .pipe(concat("scripts.js"))
-//         .on("error", handleErrors)
-//         .pipe(sourcemaps.write("."))
-//         .on("error", handleErrors)
-//         .pipe(gulp.dest(path.www + "/js"))
-// };
-
 var jsDevTask = function() {
     gulp.plumbedSrc(js)
         .pipe(sourcemaps.init()).on("error", handleErrors)
@@ -218,14 +199,32 @@ var templatesTask =  function() {
 
 gulp.task("templates", templatesTask);
 
-var watchProject = function() {
+gulp.task("default", ["dev"], function() {
     gulp.watch("scss/**/*", ["css-dev"]);
     gulp.watch(path.src + "img/**/*", ["images"]);
     gulp.watch(path.src + "modules/**/*.js", ["js-dev"]);
     gulp.watch(path.src + "modules/**/*.html", ["templates"]);
     gulp.watch(path.src + "index.html", ["index"]);
-};
+})
 
+gulp.task("dev", [
+    "images",
+    "favicon",
+    "manifest",
+    "index",
+    "css-dev",
+    "fonts",
+    "js-dev",
+    "templates"
+]); // use for developing
 
-gulp.task("dev", ["images", "favicon", "manifest", "index", "css-dev", "fonts", "js-dev", "templates"], watchProject); // use for developing
-gulp.task("build", ["images", "favicon", "manifest", "index", "css-build", "fonts", "js-build", "templates"]); // use for production build
+gulp.task("build", [
+    "images",
+    "favicon",
+    "manifest",
+    "index",
+    "css-build",
+    "fonts",
+    "js-build",
+    "templates"
+]); // use for production build
